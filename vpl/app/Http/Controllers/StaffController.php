@@ -6,8 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\User;
 use App\Company;
-use Auth;
 use App\ClientRequest;
+use Auth;
+
 
 class StaffController extends Controller
 {

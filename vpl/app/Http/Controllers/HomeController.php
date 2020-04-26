@@ -81,6 +81,7 @@ class HomeController extends Controller
                                             ->select('client_request.id', 'users.first_name', 'users.last_name', 'client_request.url', 'client_request.comment', 'client_request.created_at')
                                             ->where('users.user_type', '=', 'client')
                                             ->where('is_accepted', 0)
+                                            ->orderBy('client_request.created_at', 'DESC')
                                             ->get();
 
             return view('auth.staff', compact(

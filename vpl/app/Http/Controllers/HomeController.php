@@ -47,6 +47,20 @@ class HomeController extends Controller
         }
         elseif($user_type == 'staff')
         {
+            $current_year = date('Y');
+            $request_jan = ClientRequest::whereMonth('created_at', '1')->whereYear('created_at', $current_year)->count();
+            $request_feb = ClientRequest::whereMonth('created_at', '2')->whereYear('created_at', $current_year)->count();
+            $request_mar = ClientRequest::whereMonth('created_at', '3')->whereYear('created_at', $current_year)->count();
+            $request_apr = ClientRequest::whereMonth('created_at', '4')->whereYear('created_at', $current_year)->count();
+            $request_may = ClientRequest::whereMonth('created_at', '5')->whereYear('created_at', $current_year)->count();
+            $request_june = ClientRequest::whereMonth('created_at', '6')->whereYear('created_at', $current_year)->count();
+            $request_july = ClientRequest::whereMonth('created_at', '7')->whereYear('created_at', $current_year)->count();
+            $request_aug = ClientRequest::whereMonth('created_at', '8')->whereYear('created_at', $current_year)->count();
+            $request_sep = ClientRequest::whereMonth('created_at', '9')->whereYear('created_at', $current_year)->count();
+            $request_oct = ClientRequest::whereMonth('created_at', '10')->whereYear('created_at', $current_year)->count();
+            $request_nov = ClientRequest::whereMonth('created_at', '11')->whereYear('created_at', $current_year)->count();
+            $request_dec = ClientRequest::whereMonth('created_at', '12')->whereYear('created_at', $current_year)->count();
+
             $male_employees = User::where('gender', '=', 'male')
                                 ->where('user_type', '=', 'staff')
                                 ->where('deleted', '=', 0)
@@ -69,7 +83,25 @@ class HomeController extends Controller
                                             ->where('is_accepted', 0)
                                             ->get();
 
-            return view('auth.staff', compact('male_employees', 'female_employees', 'employees_account_active', 'client_requests', 'pending_requests'));
+            return view('auth.staff', compact(
+            'male_employees', 
+            'female_employees', 
+            'employees_account_active', 
+            'client_requests', 
+            'pending_requests',
+            'current_year',
+            'request_jan',
+            'request_feb',
+            'request_mar',
+            'request_apr',
+            'request_may',
+            'request_june',
+            'request_july',
+            'request_aug',
+            'request_sep',
+            'request_oct',
+            'request_nov',
+            'request_dec'));
         }
         else
         {

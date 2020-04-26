@@ -17,7 +17,6 @@ class ClientController extends Controller
     function post_vast_tag(Request $request)
     {
         // dd($request->all());
-
         $validator = Validator::make($request->all(), [
             'url' => 'required',
         ]);

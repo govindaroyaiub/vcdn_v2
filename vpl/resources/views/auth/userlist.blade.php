@@ -40,7 +40,7 @@
                 <table id="userlist" class="table table-bordered" width="100%" cellspacing="0">
                   <thead>
                     <tr>
-                      <th>No</th>
+                      <th>#</th>
                       <th>Name</th>
                       <th>Usertype</th>
                       <th>Email</th>

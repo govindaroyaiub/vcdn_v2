@@ -29,7 +29,9 @@ class HomeController extends Controller
     public function index()
     {
         $user_type = Auth::guard('web')->user()->user_type;
-
+        $pending_requests = ClientRequest::where('is_accepted', '=', 0)
+                                        ->get()
+                                        ->count();
         if($user_type == 'client')
         {
             $vast_tag_list = User::join('players', 'users.id', '=', 'players.client_id')
@@ -38,10 +40,6 @@ class HomeController extends Controller
                                 ->get();
             $total_vast_tags = User::join('players', 'users.id', '=', 'players.client_id')
                                 ->where('users.user_type', '=', 'client')
-                                ->get()
-                                ->count();
-            $pending_requests = ClientRequest::where('client_id', '=', Auth::user()->id)
-                                ->where('is_accepted', '=', 0)
                                 ->get()
                                 ->count();
             
@@ -64,7 +62,14 @@ class HomeController extends Controller
                                             ->where('status', '=', 'active')
                                             ->get()
                                             ->count();
-            return view('auth.staff', compact('male_employees', 'female_employees', 'employees_account_active'));
+
+            $client_requests = ClientRequest::join('users', 'client_request.client_id', 'users.id')
+                                            ->select('client_request.id', 'users.first_name', 'users.last_name', 'client_request.url', 'client_request.comment', 'client_request.created_at')
+                                            ->where('users.user_type', '=', 'client')
+                                            ->where('is_accepted', 0)
+                                            ->get();
+
+            return view('auth.staff', compact('male_employees', 'female_employees', 'employees_account_active', 'client_requests', 'pending_requests'));
         }
         else
         {

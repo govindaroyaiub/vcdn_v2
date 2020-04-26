@@ -49,4 +49,8 @@ Route::group(['middleware' => ['auth']], function()
     Route::post('savePlayer', 'HomeController@SavePlayer')->name('savePlayer.post');
     Route::get('/player/{id}/{p}', 'PlayerController@index')->name('player.iframe');
     Route::post('/getplayerInfo', 'PlayerListsController@getInfo')->name('getplayerInfo');
+
+    Route::post('/vast-tag/accept/{id}', 'StaffController@accept_vast_tag');
+    Route::post('/vast-tag/delete/{id}', 'StaffController@delete_vast_tag');
+    Route::post('/getrequestinfo', 'StaffController@getrequestInfo')->name('getrequestinfo');
 });

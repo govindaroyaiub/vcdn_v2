@@ -121,4 +121,23 @@ class StaffController extends Controller
         $data = Company::select('id', 'company_name')->get();
         return view('auth.create-user', compact('data'));
     }
+
+    function accept_vast_tag($id)
+    {
+        ClientRequest::where('id', $id)
+                    ->update(['is_accepted' => 1]);
+        return redirect('/home')->with('success', 'Request accepted!');
+    }
+
+    function delete_vast_tag($id)
+    {
+        ClientRequest::where('id', $id)->delete();
+        return redirect('/home')->with('info', 'Request deleted!');
+    }
+
+    function getrequestInfo(Request $request)
+    {
+        $data = ClientRequest::where('id', '=', $request->id)->first();
+        return $data;
+    }
 }

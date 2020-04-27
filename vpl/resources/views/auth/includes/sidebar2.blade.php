@@ -58,7 +58,7 @@
 
   <li class="nav-item {{ (request()->is('create-vast-tag')) ? 'active' : '' }}">
     <a class="nav-link" href="/create-vast-tag">
-    <i class="fas fa-code"></i>
+    <i class="fas fa-stream"></i>
       <span>Create VAST</span></a>
   </li>
 

@@ -88,8 +88,6 @@ class PlayerListsController extends Controller
         return $data;
     }
 
-
-
     public function destroy($id)
     {
         $del = Player::find($id);

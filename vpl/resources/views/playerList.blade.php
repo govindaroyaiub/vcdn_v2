@@ -77,14 +77,9 @@
                                             </td>
                                             <td width="10%">
                                                 <div class="row">
-                                                    <!-- <a style="color:#fff" href="/player/edit/{{$val->id}}"><button
+                                                    <a style="color:#fff" href="/player/edit/{{$val->id}}"><button
                                                             type="button" class="btn btn-success"><i
-                                                                class="fas fa-edit"></i></button></a> -->
-
-                                                    <button type="button" class="btn btn-success" data-toggle="modal"
-                                                        data-target="#edit_modal">
-                                                        <i class="fas fa-edit"></i>
-                                                    </button>
+                                                                class="fas fa-edit"></i></button></a>
 
                                                     <hr>
                                                     <button type="button" class="btn btn-primary view_button"

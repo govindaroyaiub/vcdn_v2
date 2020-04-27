@@ -24,11 +24,10 @@ Route::post('/change-password', 'Auth\ResetPasswordController@change_password');
 Route::group(['middleware' => ['auth']], function()
 {
     Route::get('/home', 'HomeController@index')->name('home');
+    
     //client
     Route::get('/request-vast-tag', 'ClientController@request_vast_tag');
     Route::post('/request-vast-tag', 'ClientController@post_vast_tag');
-    
-    // Route::get('/vast-tag', '')
     
     //staff
     Route::get('/companylist', 'StaffController@clientlist')->middleware('auth');
@@ -43,14 +42,14 @@ Route::group(['middleware' => ['auth']], function()
     Route::get('/websitelist', 'StaffController@websitelist');
     Route::get('/feedlist', 'StaffController@feedlist');
     Route::get('/vast-tag-admin', 'PlayerListsController@index')->name('admin');
+    Route::post('/vast-tag/accept/{id}', 'StaffController@accept_vast_tag');
+    Route::post('/vast-tag/delete/{id}', 'StaffController@delete_vast_tag');
+    Route::post('/getrequestinfo', 'StaffController@getrequestInfo')->name('getrequestinfo');
+    Route::post('/getplayerInfo', 'PlayerListsController@getInfo')->name('getplayerInfo');
+
     Route::get('/player/edit/{id}', 'PlayerListsController@edit')->name('player.edit');
     Route::post('playerUpdate', 'PlayerListsController@SavePlayer');
     Route::post('/player/delete/{id}', 'PlayerListsController@destroy')->name('player.delete');
     Route::post('savePlayer', 'HomeController@SavePlayer')->name('savePlayer.post');
     Route::get('/player/{id}/{p}', 'PlayerController@index')->name('player.iframe');
-    Route::post('/getplayerInfo', 'PlayerListsController@getInfo')->name('getplayerInfo');
-
-    Route::post('/vast-tag/accept/{id}', 'StaffController@accept_vast_tag');
-    Route::post('/vast-tag/delete/{id}', 'StaffController@delete_vast_tag');
-    Route::post('/getrequestinfo', 'StaffController@getrequestInfo')->name('getrequestinfo');
 });

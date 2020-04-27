@@ -1,3 +1,8 @@
+@if(Auth::check())
+<script type="text/javascript">
+    window.location = "{{ url('/home') }}";//here double curly bracket
+</script>
+@else
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +10,7 @@
 
   @include('auth/includes/header')
 </head>
-
+\
 <body class="bg-gradient" style="background: #E5E9EC;">
 
   <div class="container">
@@ -65,3 +70,4 @@
 </body>
 
 </html>
+@endif

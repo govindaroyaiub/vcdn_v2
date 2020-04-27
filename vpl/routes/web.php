@@ -24,7 +24,7 @@ Route::post('/change-password', 'Auth\ResetPasswordController@change_password');
 Route::group(['middleware' => ['auth']], function()
 {
     Route::get('/home', 'HomeController@index')->name('home');
-    
+
     //client
     Route::get('/request-vast-tag', 'ClientController@request_vast_tag');
     Route::post('/request-vast-tag', 'ClientController@post_vast_tag');
@@ -46,6 +46,7 @@ Route::group(['middleware' => ['auth']], function()
     Route::post('/vast-tag/delete/{id}', 'StaffController@delete_vast_tag');
     Route::post('/getrequestinfo', 'StaffController@getrequestInfo')->name('getrequestinfo');
     Route::post('/getplayerInfo', 'PlayerListsController@getInfo')->name('getplayerInfo');
+    Route::get('/create-vast-tag', 'StaffController@create_vast_tag');
 
     Route::get('/player/edit/{id}', 'PlayerListsController@edit')->name('player.edit');
     Route::post('playerUpdate', 'PlayerListsController@SavePlayer');

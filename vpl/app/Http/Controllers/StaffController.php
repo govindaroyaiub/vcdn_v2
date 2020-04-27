@@ -141,4 +141,9 @@ class StaffController extends Controller
         $data = ClientRequest::where('id', '=', $request->id)->first();
         return $data;
     }
+
+    function create_vast_tag()
+    {
+        return view('home');
+    }
 }

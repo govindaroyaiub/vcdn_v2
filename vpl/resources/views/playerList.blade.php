@@ -75,7 +75,7 @@
                                             <td width="12%">
                                                 {{$val->created_at}}
                                             </td>
-                                            <td width="10%">
+                                            <td width="9%">
                                                 <div class="row">
                                                     <a style="color:#fff" href="/player/edit/{{$val->id}}"><button
                                                             type="button" class="btn btn-success"><i

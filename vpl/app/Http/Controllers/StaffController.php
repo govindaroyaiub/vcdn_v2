@@ -172,7 +172,7 @@ class StaffController extends Controller
 
         $request->validate([
             'logo' => 'required|image|mimes:png,jpg,jpeg|max:2048',
-            'poster' => 'required|image|mimes:png, jpg, jpeg',
+            'poster' => 'required|image|mimes:png,jpg,jpeg|max:2048',
             'video' => 'required'
         ]);
 

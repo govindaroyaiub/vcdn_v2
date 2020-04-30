@@ -43,15 +43,17 @@ class HomeController extends Controller
                                     ->where('client_request.is_accepted', '=', 1)
                                     ->get();
                                     
-            $total_vast_tags = Player::where('client_id', '=', $user_id)->get()->count();
+            $total_vast_tags = Player::join('client_request', 'players.request_id', 'players.request_id')
+                                    ->where('players.client_id', '=', $user_id)
+                                    ->where('client_request.is_accepted', '=', 1)
+                                    ->get()
+                                    ->count();
             
             return view('auth.client', compact('vast_tag_list', 'total_vast_tags', 'pending_requests'));
         }
         elseif($user_type == 'staff')
         {
-            $pending_requests = ClientRequest::where('is_accepted', '=', 0)
-                                        ->get()
-                                        ->count();
+            $pending_requests = ClientRequest::where('is_accepted', '=', 0)->get() ->count();
 
             $current_year = date('Y');
             $request_jan = ClientRequest::whereMonth('created_at', '1')->whereYear('created_at', $current_year)->count();

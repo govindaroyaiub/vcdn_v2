@@ -142,7 +142,7 @@
                                                 @foreach($client_requests as $key=>$val)
                                                 <tr>
                                                     <td>{{$i++}}</td>
-                                                    <td>{{$val->first_name}} {{$val->last_name}}</td>
+                                                    <td>{{$val->first_name}} {{$val->last_name}} ({{$val->company_name}})</td>
                                                     <td><a href="{{$val->url}}" target="_blank">{{$val->url}}</a>
                                                     </td>
                                                     <td>{{$val->comment}}</td>

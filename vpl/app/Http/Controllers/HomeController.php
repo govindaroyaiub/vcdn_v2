@@ -78,7 +78,8 @@ class HomeController extends Controller
                                             ->count();
 
             $client_requests = ClientRequest::join('users', 'client_request.client_id', 'users.id')
-                                            ->select('client_request.id', 'users.first_name', 'users.last_name', 'client_request.url', 'client_request.comment', 'client_request.created_at')
+                                            ->join('clients', 'users.client_id', 'clients.id')
+                                            ->select('clients.company_name', 'client_request.id', 'users.first_name', 'users.last_name', 'client_request.url', 'client_request.comment', 'client_request.created_at')
                                             ->where('users.user_type', '=', 'client')
                                             ->where('is_accepted', 0)
                                             ->orderBy('client_request.created_at', 'DESC')

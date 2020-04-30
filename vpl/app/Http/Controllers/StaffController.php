@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Validator;
 use App\User;
 use App\Company;
 use App\ClientRequest;
+use App\Uploads;
 use Auth;
 
 
@@ -154,26 +155,39 @@ class StaffController extends Controller
 
     function asset_upload_post(Request $request, $id)
     {
-        if($request->has('logo'))
-        {
-            $request->validate([
-                'logo' => 'required|image|mimes:png,jpg,jpeg|max:2048',
-            ]);
-    
-            $fileName = time().'.'.$request->logo->extension();  
-    
-            $request->logo->move(public_path('uploads'), $fileName);
-        }
+        $client_id = ClientRequest::select('client_id')->where('id', '=', $id)->first();
 
-        if($request->has('poster'))
-        {
-            $request->validate([
-                'poster' => 'required|image|mimes:png,jpg',
-            ]);
-    
-            $fileName = time().'.'.$request->poster->extension();  
-    
-            $request->poster->move(public_path('uploads'), $fileName);
-        }
+        $request->validate([
+            'logo' => 'required|image|mimes:png,jpg,jpeg|max:2048',
+            'poster' => 'required|image|mimes:png, jpg, jpeg',
+            'video' => 'required'
+        ]);
+
+        $logo = time().'.'.$request->logo->extension();  
+        $poster = time().'.'.$request->poster->extension();  
+        $video = time().'.'.$request->video->extension();  
+
+        $request->logo->move(public_path('uploads/logo'), $logo);
+        $request->poster->move(public_path('uploads/poster'), $poster);
+        $request->video->move(public_path('uploads/video'), $video);
+
+        $logo_url = "https://vcdn-dev.planetnine.com/uploads/logo/".$logo;
+        $poster_url = "https://vcdn-dev.planetnine.com/uploads/poster/".$poster;
+        $video_url = "https://vcdn-dev.planetnine.com/uploads/logo/".$video;
+
+        $params = [
+            'client_id' => $client_id['client_id'],
+            'video_url' => $video_url,
+            'poster_url' => $poster_url,
+            'logo_url' => $logo_url
+        ];
+
+        $client_name = User::join('clients', 'users.client_id', 'clients.id')
+                                ->select('clients.company_name', 'users.first_name', 'users.last_name')
+                                ->where('users.id', '=', $client_id['client_id'])
+                                ->first();
+
+        Uploads::insert($params);
+        return view('auth.client_asset_links', compact('params', 'client_name'))->with('success', 'Assets has been uploaded Successfully!');
     }
 }

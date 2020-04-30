@@ -34,6 +34,14 @@
     </button>
 </div>
 @endif
+@if (session('success-vast-tag'))
+<div class="alert alert-info" role="alert">
+    VAST Tag has been accepted for: <b>{{ session('success-vast-tag') }}</b> !
+    <button type="button" class="close" aria-label="Close" data-dismiss="alert">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+@endif
 @if (session('info'))
 <div class="alert alert-info" role="alert">
     {{ session('info') }}

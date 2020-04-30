@@ -10,7 +10,6 @@ use App\ClientRequest;
 use App\Uploads;
 use Auth;
 
-
 class StaffController extends Controller
 {
     function clientlist()
@@ -32,7 +31,8 @@ class StaffController extends Controller
     {
         $data = User::where('user_type', '=', 'staff')
                     ->where('deleted', '=', 0)
-                    ->get()->toArray();
+                    ->get()
+                    ->toArray();
 
         return view('auth.userlist', compact('data'));
     }
@@ -126,9 +126,22 @@ class StaffController extends Controller
 
     function accept_vast_tag($id)
     {
-        ClientRequest::where('id', $id)
-                    ->update(['is_accepted' => 1]);
-        return redirect('/home')->with('success', 'Request accepted!');
+        $client_id = ClientRequest::select('client_id')->where('id', $id)->first();
+
+        $check_assets = Uploads::where('request_id', '=', $id)->first();
+
+        if($check_assets == NULL)
+        {
+            return redirect('/home')->with('error', 'You Have Not Uploaded The Assets Yet! So, Please Upload The Assets First!');
+        }
+        else
+        {
+            $client_name = User::where('id', '=', $client_id['client_id'])->where('user_type', '=', 'client')->first();
+            $client_company = Company::where('id', '=', $client_name['client_id'])->first();
+    
+            ClientRequest::where('id', $id)->update(['is_accepted' => 1]);
+            return redirect('/home')->with('success-vast-tag', $client_name['first_name'].' '.$client_name['last_name'].' '.'('.$client_company['company_name'].')');
+        }
     }
 
     function delete_vast_tag($id)
@@ -179,7 +192,8 @@ class StaffController extends Controller
             'client_id' => $client_id['client_id'],
             'video_url' => $video_url,
             'poster_url' => $poster_url,
-            'logo_url' => $logo_url
+            'logo_url' => $logo_url,
+            'request_id' => $id
         ];
 
         $client_name = User::join('clients', 'users.client_id', 'clients.id')

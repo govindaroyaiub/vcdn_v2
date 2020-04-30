@@ -20,9 +20,9 @@
             aria-haspopup="true" aria-expanded="false">
             <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{Auth::guard('web')->user()->first_name}} {{Auth::guard('web')->user()->last_name}}</span>
             @if(Auth::user()->gender == 'male')
-            <img class="img-profile rounded-circle" src="male.png">
+            <img class="img-profile rounded-circle" src="{{ URL::to('/gender/male.png') }}">
             @else
-            <img class="img-profile rounded-circle" src="female.png">
+            <img class="img-profile rounded-circle" src="{{ URL::to('/gender/female.png') }}">
             @endif
           </a>
           <!-- Dropdown - User Information -->

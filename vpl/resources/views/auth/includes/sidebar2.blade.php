@@ -62,6 +62,12 @@
       <span>Create VAST</span></a>
   </li>
 
+  <li class="nav-item {{ (request()->is('assets-list')) ? 'active' : '' }}">
+    <a class="nav-link" href="/assets-list">
+    <i class="far fa-images"></i>
+      <span>Assets List</span></a>
+  </li>
+
   <!-- Divider -->
 
 </ul>

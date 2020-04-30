@@ -184,15 +184,11 @@ class StaffController extends Controller
         $request->poster->move(public_path('uploads/poster'), $poster);
         $request->video->move(public_path('uploads/video'), $video);
 
-        $logo_url = "https://vcdn-dev.planetnine.com/uploads/logo/".$logo;
-        $poster_url = "https://vcdn-dev.planetnine.com/uploads/poster/".$poster;
-        $video_url = "https://vcdn-dev.planetnine.com/uploads/logo/".$video;
-
         $params = [
             'client_id' => $client_id['client_id'],
-            'video_url' => $video_url,
-            'poster_url' => $poster_url,
-            'logo_url' => $logo_url,
+            'video_url' => $video,
+            'poster_url' => $poster,
+            'logo_url' => $logo,
             'request_id' => $id
         ];
 
@@ -203,5 +199,22 @@ class StaffController extends Controller
 
         Uploads::insert($params);
         return view('auth.client_asset_links', compact('params', 'client_name'))->with('success', 'Assets has been uploaded Successfully!');
+    }
+
+    function assets_list()
+    {
+        $data = Uploads::join('users', 'asset_uploads.client_id', 'users.id')
+                        ->join('clients', 'users.client_id', 'clients.id')
+                        ->select('asset_uploads.id', 'asset_uploads.client_id', 'users.first_name', 'users.last_name', 'clients.company_name', 'asset_uploads.video_url', 'asset_uploads.logo_url', 'asset_uploads.poster_url', 'asset_uploads.created_at')
+                        ->orderBy('created_at', 'DESC')
+                        ->get();
+
+        return view('auth.assets-list', compact('data'));
+    }
+
+    function asset_delete($id)
+    {
+        Uploads::where('id', '=', $id)->delete();
+        return redirect('/assets-list')->with('info', 'Assets has been delete!');
     }
 }

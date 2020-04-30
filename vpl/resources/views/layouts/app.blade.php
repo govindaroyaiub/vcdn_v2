@@ -9,24 +9,14 @@
 
     <title>VCDN - Planet Nine Vast Configurator</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-    <!-- If you'd like to support IE8 (for Video.js versions prior to v7) -->
-    <script src="{{ asset('js/videojs-ie8.min.js') }}"></script>
-    <script src="{{ asset('js/video.js') }}"></script>
-    <script src="{{ asset('js/videojs-logobrand.js') }}"></script>
-    <script src="{{ asset('js/jquery.min.js') }}"></script>
-
- 
+    <link rel="stylesheet" href="https://vjs.zencdn.net/7.7.5/video-js.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/videojs-contrib-ads@6.6.5/dist/videojs-contrib-ads.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/videojs-logobrand@1.0.3/src/videojs.logobrand.css">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/video-js.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/videojs.ads.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/videojs.ima.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/videojs.logobrand.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
@@ -92,14 +82,16 @@
     </div>
 
 
-
-
     <!-- Scripts -->
-    <script src="{{ asset('js/bootstrap.min.js') }}" defer></script>
-    <script type="text/javascript" src="//imasdk.googleapis.com/js/sdkloader/ima3.js"></script>
-    <script src="{{ asset('js/videojs.ima.js') }}" defer></script>
-    <script src="{{ asset('js/videojs.ads.min.js') }}" defer></script>
-
+    <script src="{{ asset('js/jquery.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <script src="https://vjs.zencdn.net/7.7.5/video.js"></script>
+    <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
+    <script src="https://imasdk.googleapis.com/js/sdkloader/ima3.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-contrib-ads/6.6.5/videojs-contrib-ads.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-ima/1.5.0/videojs.ima.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/videojs-logobrand@1.0.3/src/videojs.logobrand.js"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
     @yield('scripts')
     
 </body>

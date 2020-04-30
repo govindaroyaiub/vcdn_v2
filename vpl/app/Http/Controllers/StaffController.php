@@ -146,4 +146,9 @@ class StaffController extends Controller
     {
         return view('home');
     }
+
+    function asset_upload($id)
+    {
+        dd($id);
+    }
 }

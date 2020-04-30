@@ -169,6 +169,9 @@
                                                                 <button class="btn btn-danger" type="submit"><i
                                                                         class="fas fa-trash"></i></button>
                                                             </form>
+
+                                                            <a href="/asset-upload/{{$val->id}}" target="_blank" class="btn btn-info"><i
+                                                                        class="fas fa-arrow-circle-up"></i></a>
                                                         </div>
                                                     </td>
                                                 </tr>

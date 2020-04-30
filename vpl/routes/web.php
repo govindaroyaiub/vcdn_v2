@@ -47,6 +47,7 @@ Route::group(['middleware' => ['auth']], function()
     Route::post('/getrequestinfo', 'StaffController@getrequestInfo')->name('getrequestinfo');
     Route::post('/getplayerInfo', 'PlayerListsController@getInfo')->name('getplayerInfo');
     Route::get('/create-vast-tag', 'StaffController@create_vast_tag');
+    Route::get('/asset-upload/{id}', 'StaffController@asset_upload');
 
     Route::get('/player/edit/{id}', 'PlayerListsController@edit')->name('player.edit');
     Route::post('playerUpdate', 'PlayerListsController@SavePlayer');

@@ -53,23 +53,23 @@
                                                         page.</li>
                                                 </ul>
                                                 <hr>
-                                                <form class="user" action="/asset-upload/{{$id}}" method="POST">
+                                                <form class="user" action="/asset-upload/{{$id}}" method="POST" enctype="multipart/form-data">
                                                     {{ csrf_field() }}
                                                     <div class="form-group">
                                                         <div class="form-group">
-                                                            <label for="exampleFormControlFile1"><b>Upload Logo Here</b></label>
+                                                            <label for="logo"><b>Upload Logo Here</b></label>
                                                             <input type="file" class="form-control-file"
-                                                                id="exampleFormControlFile1">
+                                                                id="logo" name="logo">
                                                         </div>
                                                         <div class="form-group">
-                                                            <label for="exampleFormControlFile1"><b>Upload Poster Here</b></label>
+                                                            <label for="poster"><b>Upload Poster Here</b></label>
                                                             <input type="file" class="form-control-file"
-                                                                id="exampleFormControlFile1">
+                                                                id="poster" name="poster">
                                                         </div>
                                                         <div class="form-group">
-                                                            <label for="exampleFormControlFile1"><b>Upload Video Here</b></label>
+                                                            <label for="video"><b>Upload Video Here</b></label>
                                                             <input type="file" class="form-control-file"
-                                                                id="exampleFormControlFile1">
+                                                                id="video" name="video">
                                                         </div>
                                                         <hr>
                                                         <input type="submit" name="submit" value="UPLOAD"

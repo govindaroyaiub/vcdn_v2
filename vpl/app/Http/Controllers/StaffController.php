@@ -154,6 +154,26 @@ class StaffController extends Controller
 
     function asset_upload_post(Request $request, $id)
     {
-        dd('hello');
+        if($request->has('logo'))
+        {
+            $request->validate([
+                'logo' => 'required|image|mimes:png,jpg,jpeg|max:2048',
+            ]);
+    
+            $fileName = time().'.'.$request->logo->extension();  
+    
+            $request->logo->move(public_path('uploads'), $fileName);
+        }
+
+        if($request->has('poster'))
+        {
+            $request->validate([
+                'poster' => 'required|image|mimes:png,jpg',
+            ]);
+    
+            $fileName = time().'.'.$request->poster->extension();  
+    
+            $request->poster->move(public_path('uploads'), $fileName);
+        }
     }
 }

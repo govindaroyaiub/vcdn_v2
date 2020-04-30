@@ -149,6 +149,11 @@ class StaffController extends Controller
 
     function asset_upload($id)
     {
-        return view('auth.client_asset_upload');
+        return view('auth.client_asset_upload', compact('id'));
+    }
+
+    function asset_upload_post(Request $request, $id)
+    {
+        dd('hello');
     }
 }

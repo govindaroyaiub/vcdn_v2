@@ -53,7 +53,7 @@
                                                         page.</li>
                                                 </ul>
                                                 <hr>
-                                                <form class="user" action="/request-vast-tag" method="POST">
+                                                <form class="user" action="/asset-upload/{{$id}}" method="POST">
                                                     {{ csrf_field() }}
                                                     <div class="form-group">
                                                         <div class="form-group">

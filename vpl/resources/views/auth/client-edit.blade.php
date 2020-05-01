@@ -3,7 +3,7 @@
 
 <head>
 
-  @include('auth/includes/header')
+    @include('auth/includes/header')
 
 </head>
 
@@ -13,14 +13,7 @@
   <div id="wrapper">
 
     <!-- Sidebar -->
-    @if(Auth::guard('web')->user()->user_type == 'client')
-        @include('auth/includes/sidebar')
-    @endif
-
-    @if(Auth::guard('web')->user()->user_type == 'staff')
-        @include('auth/includes/sidebar2')
-    @endif
-
+    @include('auth/includes/sidebar2')
     <!-- End of Sidebar -->
 
     <!-- Content Wrapper -->
@@ -34,19 +27,70 @@
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
-        <div class="container-fluid">
+        <div class="container">
 
-          <!-- Page Heading -->
-          <h1 class="h3 mb-4 text-gray-800">Blank Page</h1>
+    <!-- Outer Row -->
+    <div class="row justify-content-center">
 
+      <div class="col-xl-6 col-lg-6 col-md-6">
+
+        <div class="card o-hidden border-0 shadow-lg my-5">
+          <div class="card-body p-0">
+            <!-- Nested Row within Card Body -->
+            <div class="row">
+          
+              <div class="col-lg-12">
+                <div class="p-5">
+                  <div class="text-center">
+                    <h1 class="h4 text-gray-900 mb-4">Edit Company</h1>
+                  </div>
+                  @include('auth/includes/alert')
+                  <form class="user" action="/company/edit/{{$data->id}}" method="POST">
+                  {{ csrf_field() }}
+                    <div class="form-group">
+                      <input type="text" class="form-control form-control-user" id="company_name" value="{{$data->company_name}}" name="company_name" placeholder="Enter Company Name">
+                    </div>
+                    <div class="form-group">
+                      <textarea class="form-control form-control-user" id="address" name="address" value="{{$data->address}}" placeholder="Enter Address"></textarea>
+                    </div>
+                    <div class="form-group">
+                      <input type="text" class="form-control form-control-user" id="website" name="website" value="{{$data->website}}" placeholder="Enter Website">
+                    </div>
+                    <div class="form-group">
+                      <input type="text" class="form-control form-control-user" id="city" name="city" value="{{$data->city}}" placeholder="Enter City">
+                    </div>
+                    <div class="form-group">
+                      <input type="text" class="form-control form-control-user" id="state" name="state" value="{{$data->state}}" placeholder="Enter State">
+                    </div>
+                    <div class="form-group">
+                      <input type="text" class="form-control form-control-user" id="zip" name="zip" value="{{$data->zip}}" placeholder="Enter Zip">
+                    </div>
+                    <div class="form-group">
+                      <input type="text" class="form-control form-control-user" id="country" name="country" value="{{$data->country}}" placeholder="Enter Country">
+                    </div>
+                    <div class="form-group">
+                      <input type="text" class="form-control form-control-user" id="phone" name="phone" value="{{$data->phone}}" placeholder="Enter Phone">
+                    </div>
+                    <input type="submit" value="EDIT" class="btn btn-primary btn-user btn-block">
+                    <input type="button" value="BACK" class="btn btn-primary btn-user btn-block" onclick="goBack()">
+                  </form>
+                  <hr>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+
+      </div>
+
+    </div>
         <!-- /.container-fluid -->
 
       </div>
       <!-- End of Main Content -->
 
       <!-- Footer -->
-      @include('auth.includes.footer')
+      @include('auth/includes/footer')
       <!-- End of Footer -->
 
     </div>
@@ -70,6 +114,12 @@
     <!-- Custom scripts for all pages-->
     <script src="{{ URL::to('/js/sb-admin-2.min.js')}}"></script>
 
+  <script>
+    function goBack() 
+    {
+      window.history.back();
+    }
+  </script>
 </body>
 
 </html>

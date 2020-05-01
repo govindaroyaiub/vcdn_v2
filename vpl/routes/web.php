@@ -30,22 +30,26 @@ Route::group(['middleware' => ['auth']], function()
     Route::post('/request-vast-tag', 'ClientController@post_vast_tag');
     
     //staff
-    Route::get('/companylist', 'StaffController@clientlist')->middleware('auth');
+    Route::get('/companylist', 'StaffController@clientlist');
+    Route::get('/create/company', 'StaffController@create');
+    Route::post('/create/company', 'StaffController@save');
+    Route::get('/company/edit/{id}', 'StaffController@company_edit');
+    Route::post('/company/edit/{id}', 'StaffController@company_edit_post');
+    Route::post('/company/delete/{id}', 'StaffController@company_delete');
+
     Route::get('/userlist', 'StaffController@userlist');
     Route::get('/create/user', 'StaffController@create_user');
     Route::post('create/user', 'StaffController@create_user_post');
-    Route::get('/create/company', 'StaffController@create');
-    Route::post('/create/company', 'StaffController@save');
     Route::get('/user/edit/{id}', 'StaffController@user_edit');
     Route::post('/user/edit/{id}', 'StaffController@user_edit_post');
     Route::post('/user/delete/{id}', 'StaffController@user_delete');
 
-    Route::get('/publisherlist', 'StaffController@publisherlist');
-    Route::get('/create/publisher', 'StaffController@create_publisher');
-    Route::get('/adlist', 'StaffController@adlist');
-    Route::get('/create/advertiser', 'StaffController@create_advertiser');
-    Route::get('/websitelist', 'StaffController@websitelist');
-    Route::get('/feedlist', 'StaffController@feedlist');
+    // Route::get('/publisherlist', 'StaffController@publisherlist');
+    // Route::get('/create/publisher', 'StaffController@create_publisher');
+    // Route::get('/adlist', 'StaffController@adlist');
+    // Route::get('/create/advertiser', 'StaffController@create_advertiser');
+    // Route::get('/websitelist', 'StaffController@websitelist');
+    // Route::get('/feedlist', 'StaffController@feedlist');
 
     Route::get('/vast-tag-admin', 'PlayerListsController@index')->name('admin');
     Route::post('/vast-tag/accept/{id}', 'StaffController@accept_vast_tag');

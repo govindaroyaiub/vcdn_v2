@@ -16,7 +16,7 @@ class StaffController extends Controller
     {
         if(Auth::guard('web')->user()->user_type == 'staff')
         {
-            $data = Company::orderBy('created_date', 'DESC')->get();
+            $data = Company::where('deleted', 0)->orderBy('created_date', 'DESC')->get();
             return view('auth.clientList', compact('data'));
         }
     	else
@@ -79,6 +79,60 @@ class StaffController extends Controller
             Company::insert($params);
             return redirect('/companylist')->with('success', 'Registered: '.$request->company_name.' '.'!');
         }
+    }
+
+    function company_edit($id)
+    {
+        $data = Company::find($id);
+        return view('auth.client-edit', compact('data'));
+    }
+
+    function company_edit_post(Request $request, $id)
+    {
+        $data = Company::find($id);
+
+        $validator = Validator::make($request->all(), [
+            'company_name' => 'required',
+            'country' => 'required',
+            'phone' => 'required'
+        ]);
+
+        if ($validator->fails())
+        {
+            return redirect('/company/edit/'.$id)
+                        ->withErrors($validator)
+                        ->withInput();
+        }
+        else
+        {
+            $params = [
+            'company_name' => $request->company_name,
+            'address' => $request->address,
+            'website' => $request->website,
+            'city' => $request->city,
+            'state' => $request->state,
+            'zip' => $request->zip,
+            'country' => $request->country,
+            'phone' => $request->phone,
+            'created_date' => $data->created_date,
+            'starred_by' => '',
+            'group_ids' => 1,
+            'lead_status_id' => 1,
+            'owner_id' => 1,
+            'lead_source_id' => 1,
+            'last_lead_status' => '',
+            'client_migration_date' => $data->client_migration_date,
+            ];
+
+            Company::where('id', $id)->update($params);
+            return redirect('/companylist')->with('success', 'Updated: '.$request->company_name.' '.'!');
+        }
+    }
+
+    function company_delete($id)
+    {
+        Company::where('id', '=', $id)->update(['deleted' => 1]);
+        return redirect('/companylist')->with('info', 'Client Has Been Deleted!');
     }
 
     function publisherlist()

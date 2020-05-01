@@ -21,7 +21,7 @@
             <span>Companies</span></a>
     </li>
 
-    <li class="nav-item {{ (request()->is('userlist')) ? 'active' : '' }}">
+    <li class="nav-item {{ (request()->is('userlist')) || (request()->is('create/user')) ? 'active' : '' }}">
         <a class="nav-link" href="/userlist">
             <i class="fas fa-user-friends"></i>
             <span>Users</span></a>

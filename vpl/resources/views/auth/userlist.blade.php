@@ -32,8 +32,9 @@
           <!-- Page Heading -->
           <h1 class="h3 mb-4 text-gray-800">Staff List</h1>
           <div class="card shadow mb-4">
+            @include('auth/includes/alert')
             <div class="card-header py-3 text-right">
-              <a href="/create/user"> Add New <i class="fas fa-plus"></i></a>
+              <a href="/create/user" target="_blank"> Add New <i class="fas fa-plus"></i></a>
             </div>
             <div class="card-body">
               <div class="table-responsive">

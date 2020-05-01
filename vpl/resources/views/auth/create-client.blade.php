@@ -54,6 +54,9 @@
                       <textarea class="form-control form-control-user" id="address" name="address" placeholder="Enter Address"></textarea>
                     </div>
                     <div class="form-group">
+                      <input type="text" class="form-control form-control-user" id="website" name="website" placeholder="Enter Website">
+                    </div>
+                    <div class="form-group">
                       <input type="text" class="form-control form-control-user" id="city" name="city" placeholder="Enter City">
                     </div>
                     <div class="form-group">

@@ -68,6 +68,7 @@ class StaffController extends Controller
             $params = [
             'company_name' => $request->company_name,
             'address' => $request->address,
+            'website' => $request->website,
             'city' => $request->city,
             'state' => $request->state,
             'zip' => $request->zip,
@@ -126,7 +127,47 @@ class StaffController extends Controller
 
     function create_user_post(Request $request)
     {
-        dd($request->all());
+        // dd($request->all());
+        // $date = date_create("2020-02-3");
+        $d = date("Y-m-d h:i:s");
+
+        $validator = Validator::make($request->all(), [
+            'company' => 'required',
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'user_type' => 'required',
+            'gender' => 'required',
+            'email' => 'required',
+            'job_title' => 'required',
+            'phone' => 'required',
+            'address' => 'required'
+        ]);
+
+        if ($validator->fails())
+        {
+            return redirect('/create/user')
+                        ->withErrors($validator)
+                        ->withInput();
+        }
+        else
+        {
+            $params = [
+            'client_id' => $request->company,
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
+            'password' => '827ccb0eea8a706c4c34a16891f84e7b',
+            'user_type' => $request->user_type,
+            'gender' => $request->gender,
+            'email' => $request->email,
+            'job_title' => $request->job_title,
+            'phone' => $request->phone,
+            'address' => $request->address,
+            'created_at' => $d,
+            ];
+            $company_name = Company::select('company_name')->where('id', '=', $request->company)->first();
+            User::insert($params);
+            return redirect('/userlist')->with('success-create-user', $request->first_name. ' '.$request->last_name.'('.$company_name['company_name'].')');
+        }
     }
 
     function accept_vast_tag($id)

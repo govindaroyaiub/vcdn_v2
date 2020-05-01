@@ -42,6 +42,14 @@
     </button>
 </div>
 @endif
+@if (session('success-create-user'))
+<div class="alert alert-info" role="alert">
+    Registered Successfully: <b>{{ session('success-create-user') }}. </b> <br> Deafult Password: <b>12345</b>!
+    <button type="button" class="close" aria-label="Close" data-dismiss="alert">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+@endif
 @if (session('info'))
 <div class="alert alert-info" role="alert">
     {{ session('info') }}

@@ -17,7 +17,7 @@
 
     <li class="nav-item {{ (request()->is('companylist')) || (request()->is('create/company')) || (request()->is('company/edit/*'))  ? 'active' : '' }}">
         <a class="nav-link" href="/companylist">
-            <i class="fas fa-industry"></i>
+        <i class="fas fa-city"></i>
             <span>Companies</span></a>
     </li>
 

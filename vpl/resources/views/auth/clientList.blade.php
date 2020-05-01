@@ -68,12 +68,12 @@
                                             <td width="6%">
                                                 <div class="row">
                                                     <a style="color:#fff" href="/company/edit/{{$data->id}}"
-                                                        target="_blank"><button type="button" class="btn btn-success"><i
+                                                        target="_blank"><button type="button" class="btn btn-success" title="Edit"><i
                                                                 class="fas fa-edit"></i></button></a>
                                                     <hr>
                                                     <form action="/company/delete/{{$data->id}}" method="post">
                                                         @csrf
-                                                        <button class="btn btn-danger" type="submit"><i
+                                                        <button class="btn btn-danger" type="submit" title="Delete"><i
                                                                 class="fas fa-trash"></i></button>
                                                     </form>
                                                 </div>

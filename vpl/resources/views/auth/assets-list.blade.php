@@ -96,7 +96,7 @@
                                                     <td>
                                                         <form action="/asset/delete/{{$val->id}}" method="post">
                                                             @csrf
-                                                            <button class="btn btn-danger" type="submit"><i
+                                                            <button class="btn btn-danger" type="submit" title="Delete"><i
                                                                     class="fas fa-trash"></i></button>
                                                         </form>
                                                     </td>

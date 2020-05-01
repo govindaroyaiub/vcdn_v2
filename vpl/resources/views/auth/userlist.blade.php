@@ -66,12 +66,12 @@
                                             <td>@if($data['gender'] == 'male') Male @else Female @endif</td>
                                             <td width="6%">
                                                 <div class="row">
-                                                    <a style="color:#fff" href="/user/edit/{{$data['id']}}" target="_blank"><button
+                                                    <a style="color:#fff" href="/user/edit/{{$data['id']}}" target="_blank" title="Edit"><button
                                                             type="button" class="btn btn-success"><i
                                                                 class="fas fa-edit"></i></button></a> <hr>
                                                     <form action="/user/delete/{{$data['id']}}" method="post">
                                                         @csrf
-                                                        <button class="btn btn-danger" type="submit"><i
+                                                        <button class="btn btn-danger" type="submit" title="Delete"><i
                                                                 class="fas fa-trash"></i></button>
                                                     </form>
                                                 </div>

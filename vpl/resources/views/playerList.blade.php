@@ -77,19 +77,19 @@
                                             </td>
                                             <td width="9%">
                                                 <div class="row">
-                                                    <a style="color:#fff" href="/player/edit/{{$val->id}}"><button
+                                                    <a style="color:#fff" href="/player/edit/{{$val->id}}" title="Edit"><button
                                                             type="button" class="btn btn-success"><i
                                                                 class="fas fa-edit"></i></button></a>
 
                                                     <hr>
-                                                    <button type="button" class="btn btn-primary view_button"
+                                                    <button type="button" class="btn btn-primary view_button" title="View Details"
                                                         id="{{$val->id}}" data-toggle="modal" data-target="#view_modal">
                                                         <i class="fas fa-eye"></i>
                                                     </button>
                                                     <hr>
                                                     <form action="{{ route('player.delete',$val->id)}}" method="post">
                                                         @csrf
-                                                        <button class="btn btn-danger" type="submit"><i
+                                                        <button class="btn btn-danger" type="submit" title="Delete"><i
                                                                 class="fas fa-trash"></i></button>
                                                     </form>
                                                 </div>

@@ -46,7 +46,7 @@
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">{{$employees_account_active}}</div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                            <i class="fas fa-users fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -64,7 +64,7 @@
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">{{$pending_requests}}</div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                            <i class="fas fa-envelope-open-text fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -151,13 +151,13 @@
                                                         <div class="row">
                                                             <form action="/vast-tag/accept/{{$val->id}}" method="post">
                                                                 @csrf
-                                                                <button class="btn btn-secondary" type="submit"
+                                                                <button class="btn btn-secondary" type="submit" title="Send VAST"
                                                                     id="{{$val->id}}">
                                                                     <i class="fas fa-check-circle"></i>
                                                                 </button>
                                                             </form>
 
-                                                            <button type="button"
+                                                            <button type="button" title="View Details"
                                                                 class="btn btn-primary view_button"
                                                                 id="{{$val->id}}" data-toggle="modal"
                                                                 data-target="#view_modal">
@@ -166,11 +166,11 @@
 
                                                             <form action="/vast-tag/delete/{{$val->id}}" method="post">
                                                                 @csrf
-                                                                <button class="btn btn-danger" type="submit"><i
+                                                                <button title="Delete" class="btn btn-danger" type="submit"><i
                                                                         class="fas fa-trash"></i></button>
                                                             </form>
 
-                                                            <a href="/asset-upload/{{$val->id}}" target="_blank" class="btn btn-info"><i
+                                                            <a href="/asset-upload/{{$val->id}}" target="_blank" title="Upload Assets" class="btn btn-info"><i
                                                                         class="fas fa-arrow-circle-up"></i></a>
                                                         </div>
                                                     </td>

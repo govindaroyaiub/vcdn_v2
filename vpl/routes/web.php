@@ -36,18 +36,24 @@ Route::group(['middleware' => ['auth']], function()
     Route::post('create/user', 'StaffController@create_user_post');
     Route::get('/create/company', 'StaffController@create');
     Route::post('/create/company', 'StaffController@save');
+    Route::get('/user/edit/{id}', 'StaffController@user_edit');
+    Route::post('/user/edit/{id}', 'StaffController@user_edit_post');
+    Route::post('/user/delete/{id}', 'StaffController@user_delete');
+
     Route::get('/publisherlist', 'StaffController@publisherlist');
     Route::get('/create/publisher', 'StaffController@create_publisher');
     Route::get('/adlist', 'StaffController@adlist');
     Route::get('/create/advertiser', 'StaffController@create_advertiser');
     Route::get('/websitelist', 'StaffController@websitelist');
     Route::get('/feedlist', 'StaffController@feedlist');
+
     Route::get('/vast-tag-admin', 'PlayerListsController@index')->name('admin');
     Route::post('/vast-tag/accept/{id}', 'StaffController@accept_vast_tag');
     Route::post('/vast-tag/delete/{id}', 'StaffController@delete_vast_tag');
     Route::post('/getrequestinfo', 'StaffController@getrequestInfo')->name('getrequestinfo');
     Route::post('/getplayerInfo', 'PlayerListsController@getInfo')->name('getplayerInfo');
     Route::get('/create-vast-tag', 'StaffController@create_vast_tag');
+
     Route::get('/asset-upload/{id}', 'StaffController@asset_upload');
     Route::post('/asset-upload/{id}', 'StaffController@asset_upload_post');
     Route::get('/assets-list', 'StaffController@assets_list');

@@ -27,8 +27,7 @@ class StaffController extends Controller
 
     function userlist()
     {
-        $data = User::where('user_type', '=', 'staff')
-                    ->where('deleted', '=', 0)
+        $data = User::where('deleted', '=', 0)
                     ->get()
                     ->toArray();
 
@@ -133,7 +132,6 @@ class StaffController extends Controller
             'email' => 'required',
             'job_title' => 'required',
             'phone' => 'required',
-            'address' => 'required'
         ]);
 
         if ($validator->fails())
@@ -161,6 +159,61 @@ class StaffController extends Controller
             User::insert($params);
             return redirect('/userlist')->with('success-create-user', $request->first_name. ' '.$request->last_name.'('.$company_name['company_name'].')');
         }
+    }
+
+    function user_edit($id)
+    {
+        $data = Company::select('id', 'company_name')->get();
+        $user_data = User::find($id);
+        $company_id = $user_data->client_id;
+        return view('auth.user-edit', compact('data', 'user_data', 'company_id'));
+    }
+
+    function user_edit_post(Request $request, $id)
+    {
+        $d = date("Y-m-d h:i:s");
+
+        $validator = Validator::make($request->all(), [
+            'company' => 'required',
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'user_type' => 'required',
+            'gender' => 'required',
+            'email' => 'required',
+            'job_title' => 'required',
+            'phone' => 'required',
+        ]);
+
+        if ($validator->fails())
+        {
+            return redirect('/user/edit/'.$id)
+                        ->withErrors($validator)
+                        ->withInput();
+        }
+        else
+        {
+            $params = [
+            'client_id' => $request->company,
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
+            'user_type' => $request->user_type,
+            'gender' => $request->gender,
+            'email' => $request->email,
+            'job_title' => $request->job_title,
+            'phone' => $request->phone,
+            'address' => $request->address,
+            'created_at' => $d,
+            ];
+            $company_name = Company::select('company_name')->where('id', '=', $request->company)->first();
+            User::where('id', '=', $id)->update($params);
+            return redirect('/userlist')->with('success-edit-user', $request->first_name. ' '.$request->last_name.'('.$company_name['company_name'].')');
+        }
+    }
+
+    function user_delete($id)
+    {
+        User::where('id', '=', $id)->update(['deleted' => 1]);
+        return redirect('/userlist')->with('info', 'User Has Been Deleted!');
     }
 
     function accept_vast_tag($id)

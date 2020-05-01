@@ -44,7 +44,7 @@
                   </div>
                   <hr>
                   @include('auth/includes/alert')
-                  <form class="user" action="/create/company" method="POST">
+                  <form class="user" action="/create/user" method="POST">
                   {{ csrf_field() }}
                     <div class="form-group">
                       <select class="form-control select2" id="company_name" name="company_name">
@@ -72,15 +72,14 @@
                     <div class="form-group">
                       <input type="text" class="form-control form-control-user" id="phone" name="phone" placeholder="Enter Phone">
                     </div>
-                    <hr>
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                       <input type="checkbox" class="form-control-user" name="vcdn_role" id="vcdn_role">
                       <label for="exampleCheck1">Publisher Role For VCDN</label>
                     </div>
                     <div class="form-group">
                       <input type="checkbox" class="form-control-user" name="mitm_role" id="mitm_role">
                       <label for="exampleCheck1">Advister Role For MITM</label>
-                    </div>
+                    </div> -->
                     <hr>
                     <input type="submit" value="CREATE" class="btn btn-primary btn-user btn-block">
                     <input type="button" value="BACK" class="btn btn-primary btn-user btn-block" onclick="window.history.back();">

@@ -54,8 +54,8 @@
                                             <th>#</th>
                                             <th>Player name</th>
                                             <th>Video SRC</th>
-                                            <th>iframe</th>
-                                            <th>Created At</th>
+                                            <th>iframe Code</th>
+                                            <th>Date & Time</th>
                                             <th style="text-align: center">Action</th>
                                         </tr>
                                     </thead>

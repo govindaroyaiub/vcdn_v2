@@ -53,7 +53,7 @@
                                             <thead>
                                                 <tr>
                                                     <th scope="col">#</th>
-                                                    <th>Client Name</th>
+                                                    <th>Client & Company</th>
                                                     <th>Logo</th>
                                                     <th>Poster</th>
                                                     <th>Video</th>

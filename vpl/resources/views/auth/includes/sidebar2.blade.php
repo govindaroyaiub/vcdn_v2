@@ -1,32 +1,38 @@
 <ul class="navbar-nav bg-gradient-info sidebar sidebar-dark accordion" id="accordionSidebar">
 
-  <!-- Sidebar - Brand -->
-  <a class="sidebar-brand d-flex align-items-center justify-content-center" style="background: #ffffff" href="/home">
-    <div class="sidebar-brand-text mx-3"><img class="dashboard-image" src="/logo/VCDN_Logo.jpg" style="width: 160px; height: 38px;"></div>
-  </a>
+    <!-- Sidebar - Brand -->
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" style="background: #ffffff" href="/home">
+        <div class="sidebar-brand-text mx-3"><img class="dashboard-image" src="/logo/VCDN_Logo.jpg"
+                style="width: 160px; height: 38px;"></div>
+    </a>
 
-  <!-- Divider -->
-  <hr class="sidebar-divider my-0">
-  <!-- Nav Item - Dashboard -->
-  <li class="nav-item {{ (request()->is('staff')) ? 'active' : '' }}">
-    <a class="nav-link" href="/home">
-      <i class="fas fa-fw fa-tachometer-alt"></i>
-      <span>Dashboard</span></a>
-  </li>
+    <!-- Divider -->
+    <hr class="sidebar-divider my-0">
+    <!-- Nav Item - Dashboard -->
+    <li class="nav-item {{ (request()->is('/')) || (request()->is('home')) ? 'active' : '' }}">
+        <a class="nav-link" href="/home">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Dashboard</span></a>
+    </li>
 
-  <li class="nav-item {{ (request()->is('companylist')) || (request()->is('create/company'))  ? 'active' : '' }}">
-    <a class="nav-link" href="/companylist">
-    <i class="fas fa-industry"></i>
-      <span>Companies</span></a>
-  </li>
+    <li class="nav-item {{ (request()->is('companylist')) || (request()->is('create/company'))  ? 'active' : '' }}">
+        <a class="nav-link" href="/companylist">
+            <i class="fas fa-industry"></i>
+            <span>Companies</span></a>
+    </li>
 
-  <li class="nav-item {{ (request()->is('userlist')) ? 'active' : '' }}">
-    <a class="nav-link" href="/userlist">
-    <i class="fas fa-user-friends"></i>
-      <span>Users</span></a>
-  </li>
+    <li class="nav-item {{ (request()->is('userlist')) ? 'active' : '' }}">
+        <a class="nav-link" href="/userlist">
+            <i class="fas fa-user-friends"></i>
+            <span>Users</span></a>
+    </li>
 
-  <!-- <li class="nav-item {{ (request()->is('publisherlist')) ? 'active' : '' }}">
+    <li class="nav-item {{ (request()->is('assets-list')) ? 'active' : '' }}">
+        <a class="nav-link" href="/assets-list">
+            <i class="far fa-images"></i>
+            <span>Assets</span></a>
+    </li>
+    <!-- <li class="nav-item {{ (request()->is('publisherlist')) ? 'active' : '' }}">
     <a class="nav-link" href="/publisherlist">
     <i class="fas fa-newspaper"></i>
       <span>Publishers</span></a>
@@ -50,24 +56,18 @@
       <span>Feeds</span></a>
   </li> -->
 
-  <li class="nav-item {{ (request()->is('vast-tag-admin')) ? 'active' : '' }}">
-    <a class="nav-link" href="/vast-tag-admin">
-    <i class="fas fa-code"></i>
-      <span>Vast Tag Admin</span></a>
-  </li>
+    <li class="nav-item {{ (request()->is('vast-tag-admin')) ? 'active' : '' }}">
+        <a class="nav-link" href="/vast-tag-admin">
+            <i class="fas fa-code"></i>
+            <span>Vast Tag Admin</span></a>
+    </li>
 
-  <li class="nav-item {{ (request()->is('create-vast-tag')) ? 'active' : '' }}">
-    <a class="nav-link" href="/create-vast-tag">
-    <i class="fas fa-stream"></i>
-      <span>Create VAST</span></a>
-  </li>
+    <li class="nav-item {{ (request()->is('create-vast-tag')) ? 'active' : '' }}">
+        <a class="nav-link" href="/create-vast-tag">
+            <i class="fas fa-stream"></i>
+            <span>Create VAST</span></a>
+    </li>
 
-  <li class="nav-item {{ (request()->is('assets-list')) ? 'active' : '' }}">
-    <a class="nav-link" href="/assets-list">
-    <i class="far fa-images"></i>
-      <span>Assets List</span></a>
-  </li>
-
-  <!-- Divider -->
+    <!-- Divider -->
 
 </ul>

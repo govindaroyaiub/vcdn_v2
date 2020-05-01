@@ -80,7 +80,7 @@ class StaffController extends Controller
             'owner_id' => 1,
             'lead_source_id' => 1,
             'last_lead_status' => '',
-            'client_migration_date' => $d
+            'client_migration_date' => $d,
             ];
 
             Company::insert($params);
@@ -122,6 +122,11 @@ class StaffController extends Controller
     {
         $data = Company::select('id', 'company_name')->get();
         return view('auth.create-user', compact('data'));
+    }
+
+    function create_user_post(Request $request)
+    {
+        dd($request->all());
     }
 
     function accept_vast_tag($id)

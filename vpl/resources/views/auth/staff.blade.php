@@ -130,10 +130,10 @@
                                             <thead>
                                                 <tr>
                                                     <th scope="col">#</th>
-                                                    <th>Client Name</th>
+                                                    <th>Client & Company</th>
                                                     <th>Assets URL</th>
                                                     <th>Comment</th>
-                                                    <th>Created At</th>
+                                                    <th>Date & Time</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>

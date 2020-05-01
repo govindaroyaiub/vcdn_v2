@@ -15,7 +15,7 @@
             <span>Dashboard</span></a>
     </li>
 
-    <li class="nav-item {{ (request()->is('companylist')) || (request()->is('create/company'))  ? 'active' : '' }}">
+    <li class="nav-item {{ (request()->is('companylist')) || (request()->is('create/company')) || (request()->is('company/edit/*'))  ? 'active' : '' }}">
         <a class="nav-link" href="/companylist">
             <i class="fas fa-industry"></i>
             <span>Companies</span></a>

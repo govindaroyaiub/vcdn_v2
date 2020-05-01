@@ -125,7 +125,7 @@ class StaffController extends Controller
             ];
 
             Company::where('id', $id)->update($params);
-            return redirect('/companylist')->with('success', 'Updated: '.$request->company_name.' '.'!');
+            return redirect('/company/edit/'.$id)->with('success', 'Updated: '.$request->company_name.' '.'!');
         }
     }
 
@@ -260,7 +260,7 @@ class StaffController extends Controller
             ];
             $company_name = Company::select('company_name')->where('id', '=', $request->company)->first();
             User::where('id', '=', $id)->update($params);
-            return redirect('/userlist')->with('success-edit-user', $request->first_name. ' '.$request->last_name.'('.$company_name['company_name'].')');
+            return redirect('/user/edit/'.$id)->with('success-edit-user', $request->first_name. ' '.$request->last_name.'('.$company_name['company_name'].')');
         }
     }
 

@@ -32,6 +32,7 @@
           <!-- Page Heading -->
           <h1 class="h3 mb-4 text-gray-800">Client List</h1>
           <div class="card shadow mb-4">
+          @include('auth/includes/alert')
             <div class="card-header py-3 text-right">
               <a href="/create/company" target="_blank"> Add New <i class="fas fa-plus"></i></a>
             </div>
@@ -43,7 +44,6 @@
                       <th>#</th>
                       <th>Company Name</th>
                       <th>Website</th>
-                      <th>Email</th>
                       <th>Address</th>
                       <th>Country</th>
                       <th>City</th>
@@ -59,7 +59,6 @@
                       <td>{{$i++}}</td>
                       <td>{{$data->company_name}}</td>
                       <td>{{$data->website}}</td>
-                      <td>{{$data->email}}</td>
                       <td>{{$data->address}}</td>
                       <td>{{$data->country}}</td>
                       <td>{{$data->city}}</td>

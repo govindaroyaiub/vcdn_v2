@@ -16,9 +16,7 @@ class StaffController extends Controller
     {
         if(Auth::guard('web')->user()->user_type == 'staff')
         {
-            $data = User::join('clients', 'users.client_id', '=', 'clients.id')
-                    ->select('users.email', 'clients.company_name', 'clients.address', 'clients.city', 'clients.state', 'clients.zip', 'clients.country', 'clients.website')
-                    ->get();
+            $data = Company::orderBy('created_date', 'DESC')->get();
             return view('auth.clientList', compact('data'));
         }
     	else
@@ -44,15 +42,10 @@ class StaffController extends Controller
 
     function save(Request $request)
     {
-        $date = date_create("2020-02-3");
-        $d = date_format($date,"Y-m-d");
+        $d = date("Y-m-d");
 
         $validator = Validator::make($request->all(), [
             'company_name' => 'required',
-            'address' => 'required',
-            'city' => 'required',
-            'state' => 'required',
-            'zip' => 'required',
             'country' => 'required',
             'phone' => 'required'
         ]);
@@ -85,7 +78,7 @@ class StaffController extends Controller
             ];
 
             Company::insert($params);
-            return redirect('/create/company')->with('success', 'Registered Sucessfully!');
+            return redirect('/companylist')->with('success', 'Registered: '.$request->company_name.' '.'!');
         }
     }
 

@@ -214,6 +214,28 @@ class StaffController extends Controller
 
     function asset_delete($id)
     {
+        $files = Uploads::find($id);
+        
+        $logo = $files['logo_url'];
+        $poster = $files['poster_url'];
+        $video = $files['video_url'];
+
+        if(file_exists(public_path('uploads/logo/'.$logo)))
+        {
+            unlink(public_path('uploads/logo/'.$logo));
+        }
+        if(file_exists(public_path('uploads/poster/'.$poster)))
+        {
+            unlink(public_path('uploads/poster/'.$poster));
+        }
+        if(file_exists(public_path('uploads/video/'.$video)))
+        {
+            unlink(public_path('uploads/video/'.$video));
+        }
+        else
+        {
+            return back()->wuth('error', 'Sorry, no assets found!');
+        }
         Uploads::where('id', '=', $id)->delete();
         return redirect('/assets-list')->with('info', 'Assets has been delete!');
     }

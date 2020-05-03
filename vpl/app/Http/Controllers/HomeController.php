@@ -53,21 +53,24 @@ class HomeController extends Controller
         }
         elseif($user_type == 'staff')
         {
-            $pending_requests = ClientRequest::where('is_accepted', '=', 0)->get() ->count();
-
             $current_year = date('Y');
-            $request_jan = ClientRequest::whereMonth('created_at', '1')->whereYear('created_at', $current_year)->count();
-            $request_feb = ClientRequest::whereMonth('created_at', '2')->whereYear('created_at', $current_year)->count();
-            $request_mar = ClientRequest::whereMonth('created_at', '3')->whereYear('created_at', $current_year)->count();
-            $request_apr = ClientRequest::whereMonth('created_at', '4')->whereYear('created_at', $current_year)->count();
-            $request_may = ClientRequest::whereMonth('created_at', '5')->whereYear('created_at', $current_year)->count();
-            $request_june = ClientRequest::whereMonth('created_at', '6')->whereYear('created_at', $current_year)->count();
-            $request_july = ClientRequest::whereMonth('created_at', '7')->whereYear('created_at', $current_year)->count();
-            $request_aug = ClientRequest::whereMonth('created_at', '8')->whereYear('created_at', $current_year)->count();
-            $request_sep = ClientRequest::whereMonth('created_at', '9')->whereYear('created_at', $current_year)->count();
-            $request_oct = ClientRequest::whereMonth('created_at', '10')->whereYear('created_at', $current_year)->count();
-            $request_nov = ClientRequest::whereMonth('created_at', '11')->whereYear('created_at', $current_year)->count();
-            $request_dec = ClientRequest::whereMonth('created_at', '12')->whereYear('created_at', $current_year)->count();
+            
+            $total_vast_tags = Player::whereYear('created_at', $current_year)->get()->count();
+            $pending_requests = ClientRequest::where('is_accepted', '=', 0)->get()->count();
+            $approved_requests = ClientRequest::where('is_accepted', '=', 1)->get()->count();
+
+            $request_jan = Player::whereMonth('created_at', '1')->whereYear('created_at', $current_year)->count();
+            $request_feb = Player::whereMonth('created_at', '2')->whereYear('created_at', $current_year)->count();
+            $request_mar = Player::whereMonth('created_at', '3')->whereYear('created_at', $current_year)->count();
+            $request_apr = Player::whereMonth('created_at', '4')->whereYear('created_at', $current_year)->count();
+            $request_may = Player::whereMonth('created_at', '5')->whereYear('created_at', $current_year)->count();
+            $request_june = Player::whereMonth('created_at', '6')->whereYear('created_at', $current_year)->count();
+            $request_july = Player::whereMonth('created_at', '7')->whereYear('created_at', $current_year)->count();
+            $request_aug = Player::whereMonth('created_at', '8')->whereYear('created_at', $current_year)->count();
+            $request_sep = Player::whereMonth('created_at', '9')->whereYear('created_at', $current_year)->count();
+            $request_oct = Player::whereMonth('created_at', '10')->whereYear('created_at', $current_year)->count();
+            $request_nov = Player::whereMonth('created_at', '11')->whereYear('created_at', $current_year)->count();
+            $request_dec = Player::whereMonth('created_at', '12')->whereYear('created_at', $current_year)->count();
 
             $male_employees = User::where('gender', '=', 'male')
                                 ->where('user_type', '=', 'staff')
@@ -99,6 +102,8 @@ class HomeController extends Controller
             'employees_account_active', 
             'client_requests', 
             'pending_requests',
+            'approved_requests',
+            'total_vast_tags',
             'current_year',
             'request_jan',
             'request_feb',

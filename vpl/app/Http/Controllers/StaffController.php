@@ -183,7 +183,7 @@ class StaffController extends Controller
             'last_name' => 'required',
             'user_type' => 'required',
             'gender' => 'required',
-            'email' => 'required|unique:users',
+            'email' => 'required|email|unique:users',
             'job_title' => 'required',
             'phone' => 'required|unique:users',
         ]);

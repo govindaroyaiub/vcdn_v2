@@ -15,13 +15,15 @@
             <span>Dashboard</span></a>
     </li>
 
-    <li class="nav-item {{ (request()->is('companylist')) || (request()->is('create/company')) || (request()->is('company/edit/*'))  ? 'active' : '' }}">
+    <li
+        class="nav-item {{ (request()->is('companylist')) || (request()->is('create/company')) || (request()->is('company/edit/*'))  ? 'active' : '' }}">
         <a class="nav-link" href="/companylist">
-        <i class="fas fa-city"></i>
+            <i class="fas fa-city"></i>
             <span>Companies</span></a>
     </li>
 
-    <li class="nav-item {{ (request()->is('userlist')) || (request()->is('create/user')) || (request()->is('user/edit/*')) ? 'active' : '' }}">
+    <li
+        class="nav-item {{ (request()->is('userlist')) || (request()->is('create/user')) || (request()->is('user/edit/*')) ? 'active' : '' }}">
         <a class="nav-link" href="/userlist">
             <i class="fas fa-user-friends"></i>
             <span>Users</span></a>
@@ -32,6 +34,8 @@
             <i class="far fa-images"></i>
             <span>Assets</span></a>
     </li>
+
+
     <!-- <li class="nav-item {{ (request()->is('publisherlist')) ? 'active' : '' }}">
     <a class="nav-link" href="/publisherlist">
     <i class="fas fa-newspaper"></i>
@@ -66,6 +70,19 @@
         <a class="nav-link" href="/create-vast-tag">
             <i class="fas fa-stream"></i>
             <span>Create VAST</span></a>
+    </li>
+
+    <li class="nav-item">
+        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link"><i class="fas fa-sort-amount-down"></i> <span>ShortCuts</span></a>
+        
+        <ul class="collapse list-unstyled" id="pageSubmenu">
+            <li>
+                <a href="/create/user" target="_blank" class="nav-link"><i class="fas fa-users"></i> <span>Create User</span></a>
+            </li>
+            <li>
+                <a href="/create/company" target="_blank" class="nav-link"><i class="fas fa-building"></i> <span>Create Client</span></a>
+            </li>
+        </ul>
     </li>
 
     <!-- Divider -->

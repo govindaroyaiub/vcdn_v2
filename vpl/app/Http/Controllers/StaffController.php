@@ -46,7 +46,7 @@ class StaffController extends Controller
         $validator = Validator::make($request->all(), [
             'company_name' => 'required',
             'country' => 'required',
-            'phone' => 'required'
+            'phone' => 'required|unique:clients'
         ]);
 
         if ($validator->fails())
@@ -183,9 +183,9 @@ class StaffController extends Controller
             'last_name' => 'required',
             'user_type' => 'required',
             'gender' => 'required',
-            'email' => 'required',
+            'email' => 'required|unique:users',
             'job_title' => 'required',
-            'phone' => 'required',
+            'phone' => 'required|unique:users',
         ]);
 
         if ($validator->fails())

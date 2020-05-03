@@ -57,7 +57,7 @@
                                                     <th>Logo</th>
                                                     <th>Poster</th>
                                                     <th>Video</th>
-                                                    <th>Created At</th>
+                                                    <th>Date & Time</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>

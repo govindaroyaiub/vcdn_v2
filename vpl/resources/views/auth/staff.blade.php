@@ -182,7 +182,7 @@
                                                         <div class="row">
                                                             <form action="/vast-tag/accept/{{$val->id}}" method="post">
                                                                 @csrf
-                                                                <button class="btn btn-secondary" type="submit" title="Send VAST"
+                                                                <button class="btn btn-secondary" type="submit" title="Approve"
                                                                     id="{{$val->id}}">
                                                                     <i class="fas fa-check-circle"></i>
                                                                 </button>

@@ -178,7 +178,7 @@
                                                     </td>
                                                     <td>{{$val->comment}}</td>
                                                     <td>{{$val->created_at}}</td>
-                                                    <td width="15%">
+                                                    <td width="11%">
                                                         <div class="row">
                                                             <form action="/vast-tag/accept/{{$val->id}}" method="post">
                                                                 @csrf
@@ -285,7 +285,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <th>Created At</th>
+                                <th>Date & Time</th>
                                 <td>
                                     <label id="created_at_label"></li>
                                 </td>

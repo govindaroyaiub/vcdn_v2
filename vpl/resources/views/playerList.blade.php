@@ -169,7 +169,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <th>Created At</th>
+                                <th>Time & Date</th>
                                 <td>
                                     <label id="created_at_label"></li>
                                 </td>

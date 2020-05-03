@@ -47,6 +47,9 @@
                                                 <form class="user" action="/create/user" method="POST">
                                                     {{ csrf_field() }}
                                                     <div class="form-group">
+                                                    <a href="/create/company">Click here if the Client is not listed</a>
+                                                    </div>
+                                                    <div class="form-group">
                                                         <select class="form-control select2 form-control-user" id="company"
                                                             name="company">
                                                             <option value="">Select Associated Company

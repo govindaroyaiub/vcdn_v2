@@ -73,9 +73,9 @@
     </li>
 
     <li class="nav-item">
-        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link"><i class="fas fa-list"></i> <span>ShortCuts</span></a>
+        <a href="#shortcutMenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link"><i class="fas fa-list"></i> <span>ShortCuts</span> <i class="fas fa-caret-down"></i></a>
         
-        <ul class="collapse list-unstyled" id="pageSubmenu">
+        <ul class="collapse list-unstyled" id="shortcutMenu">
             <li>
                 <a href="/create/user" target="_blank" class="nav-link"><i class="fas fa-users"></i> <span>Create User</span></a>
             </li>

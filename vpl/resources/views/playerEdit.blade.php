@@ -114,7 +114,7 @@
 
           <div class="form-group mt-3">
             <label for="code">Embed Code</label>
-            <textarea class="form-control" id="code" rows="12"></textarea>
+            <textarea class="form-control" id="code" rows="12">{{$player->iframe_code}}</textarea>
           </textarea>
         </div>
     </div>

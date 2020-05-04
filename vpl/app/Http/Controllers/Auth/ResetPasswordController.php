@@ -53,7 +53,7 @@ class ResetPasswordController extends Controller
 
       if($user_info->password == md5($req->current_password))
       {
-        if((md5($req->new_passowrd != $user_info->password) && ($req->new_password == $req->repeat_password)))
+        if((md5($req->new_password != $user_info->password) && ($req->new_password == $req->repeat_password)))
         {
           User::where('id', $id)->update(['password' => md5($req->repeat_password)]);
           Auth::logout();

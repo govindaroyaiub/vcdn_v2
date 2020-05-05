@@ -61,7 +61,8 @@ Route::group(['middleware' => ['auth']], function()
     Route::get('/vast-tag-admin', 'PlayerListsController@index')->name('admin');
     Route::post('/vast-tag/accept/{id}', 'StaffController@accept_vast_tag');
     Route::post('/vast-tag/delete/{id}', 'StaffController@delete_vast_tag');
-    Route::get('/create-vast-tag', 'StaffController@create_vast_tag');
+    Route::get('/create-vast-tag/{id}', 'StaffController@create_vast_tag');
+    Route::get('/create-vast-tag', 'StaffController@create_vast_tag2');
 
     //ajax post request for getting all request info and playerinfo for playersLists
     Route::post('/getrequestinfo', 'StaffController@getrequestInfo')->name('getrequestinfo');

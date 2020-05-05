@@ -2,7 +2,8 @@
 <html lang="en">
 
 <head>
-    @include('auth/includes/header')
+@include('auth/includes/header')
+
 </head>
 
 <body id="page-top">

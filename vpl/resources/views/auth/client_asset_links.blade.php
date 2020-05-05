@@ -85,7 +85,7 @@
                                                                 class="far fa-copy"></i></button>
                                                     </div>
                                                     <hr>
-                                                    <a href="/create-vast-tag" target="_blank"
+                                                    <a href="/create-vast-tag/{{$id}}" target="_blank"
                                                         class="btn btn-primary btn-user btn-block">CREATE VAST</a>
                                                     <input type="button" value="BACK"
                                                         class="btn btn-primary btn-user btn-block" onclick="goBack()">

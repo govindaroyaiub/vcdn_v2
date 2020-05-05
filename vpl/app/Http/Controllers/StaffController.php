@@ -8,6 +8,7 @@ use App\User;
 use App\Company;
 use App\ClientRequest;
 use App\Uploads;
+use App\Player;
 use Auth;
 
 class StaffController extends Controller
@@ -275,10 +276,15 @@ class StaffController extends Controller
         $client_id = ClientRequest::select('client_id')->where('id', $id)->first();
 
         $check_assets = Uploads::where('request_id', '=', $id)->first();
+        $check_player = Player::where('request_id', '=', $id)->first();
 
         if($check_assets == NULL)
         {
             return redirect('/home')->with('error', 'You Have Not Uploaded The Assets Yet! So, Please Upload The Assets First!');
+        }
+        elseif($check_player == NULL)
+        {
+            return redirect('/home')->with('error', 'You Have Not Generated VAST Tag For This Request!');
         }
         else
         {
@@ -302,14 +308,55 @@ class StaffController extends Controller
         return $data;
     }
 
-    function create_vast_tag()
+    function create_vast_tag($id)
     {
-        return view('home');
+        $request_id = $id;
+        $client_id = ClientRequest::where('id', '=', $id)->first();
+        $client_info = User::join('clients', 'users.client_id', 'clients.id')
+                            ->where('users.user_type', '=', 'client')
+                            ->select('users.id', 'users.first_name', 'users.last_name', 'clients.company_name')
+                            ->orderBy('users.first_name')
+                            ->get();
+
+        return view('home', compact('client_info', 'request_id', 'client_id'));
+    }
+
+    function create_vast_tag2()
+    {
+        $client_info = User::join('clients', 'users.client_id', 'clients.id')
+                            ->where('users.user_type', '=', 'client')
+                            ->select('users.id', 'users.first_name', 'users.last_name', 'clients.company_name')
+                            ->orderBy('users.first_name')
+                            ->get();
+
+        return view('home2', compact('client_info'));
     }
 
     function asset_upload($id)
     {
-        return view('auth.client_asset_upload', compact('id'));
+        $assets_data = Uploads::where('request_id', $id)->first();
+        if($assets_data == NULL)
+        {
+            return view('auth.client_asset_upload', compact('id'));
+        }
+        else
+        {
+            $client_id = ClientRequest::select('client_id')->where('id', '=', $id)->first();
+            $params = [
+                'client_id' => $assets_data['client_id'],
+                'video_url' => $assets_data['video_url'],
+                'poster_url' => $assets_data['poster_url'],
+                'logo_url' =>   $assets_data['logo_url'],
+                'request_id' => $id
+            ];
+
+            $client_name = User::join('clients', 'users.client_id', 'clients.id')
+                                ->select('clients.company_name', 'users.first_name', 'users.last_name')
+                                ->where('users.id', '=', $client_id['client_id'])
+                                ->first();
+
+            return view('auth.client_asset_links', compact('params', 'client_name', 'id'))->with('success', 'Here are what you have been missing!');
+        }
     }
 
     function asset_upload_post(Request $request, $id)
@@ -344,7 +391,7 @@ class StaffController extends Controller
                                 ->first();
 
         Uploads::insert($params);
-        return view('auth.client_asset_links', compact('params', 'client_name'))->with('success', 'Assets has been uploaded Successfully!');
+        return view('auth.client_asset_links', compact('params', 'client_name', 'id'))->with('success', 'Assets has been uploaded Successfully!');
     }
 
     function assets_list()

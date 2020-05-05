@@ -43,7 +43,7 @@
                     <h1 class="h3 mb-4 text-gray-800">VAST-Tag Player List</h1>
                     <div class="card shadow mb-4">
                         <div class="card-header py-3 text-right">
-                            <!--<a href="/create/company"> Add New <i class="fas fa-plus"></i></a>-->
+                            <a href="/create-vast-tag" target="_blank"> Add New <i class="fas fa-plus"></i></a>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">

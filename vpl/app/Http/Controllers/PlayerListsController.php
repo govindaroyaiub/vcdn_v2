@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Player;
+use App\User;
+use App\Company;
 class PlayerListsController extends Controller
 {
     /**
@@ -20,8 +22,13 @@ class PlayerListsController extends Controller
 
     public function edit($id)
     {
-        $players = Player::find($id);
-        return view('playerEdit')->with('player',$players);        
+        $player = Player::find($id);
+        $client_info = User::join('clients', 'users.client_id', 'clients.id')
+                            ->where('users.user_type', '=', 'client')
+                            ->select('users.id', 'users.first_name', 'users.last_name', 'clients.company_name')
+                            ->orderBy('users.first_name')
+                            ->get();
+        return view('playerEdit', compact('player', 'client_info', 'id'));   
     }
 
     public function SavePlayer(Request $request){

@@ -294,13 +294,13 @@ class StaffController extends Controller
             $to_name = $client_name['first_name'];
             $to_email = $client_name['email'];
 
-            $data = array('name'=> $to_name, "body" => "Your VAST Tag has been generated! Please check your Dashboard.");
-            Mail::send('auth.email.vast-email', $data, function($message) use ($to_name, $to_email) 
-            {
-                $message->to($to_email, $to_name)->subject('VAST Tag Generated!');
+            // $data = array('name'=> $to_name, "body" => "Your VAST Tag has been generated! Please check your Dashboard.");
+            // Mail::send('auth.email.vast-email', $data, function($message) use ($to_name, $to_email) 
+            // {
+            //     $message->to($to_email, $to_name)->subject('VAST Tag Generated!');
 
-                $message->from('govindaroy.ofc94@gmail.com','Govinda Roy');
-            });
+            //     $message->from('govindaroy.ofc94@gmail.com','Govinda Roy');
+            // });
     
             ClientRequest::where('id', $id)->update(['is_accepted' => 1]);
             return redirect('/home')->with('success-vast-tag', $client_name['first_name'].' '.$client_name['last_name'].' '.'('.$client_company['company_name'].')');

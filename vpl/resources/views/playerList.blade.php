@@ -52,6 +52,7 @@
                                     <thead>
                                         <tr>
                                             <th>#</th>
+                                            <th>Client Name</th>
                                             <th>Player name</th>
                                             <th>Video SRC</th>
                                             <th>iframe Code</th>
@@ -65,8 +66,9 @@
                                         @foreach($players as $key=>$val)
                                         <tr>
                                             <td>{{$i++}}</td>
-                                            <td width="13%">{{$val->name}}</td>
-                                            <td width="25%" style="max-width: 160px; word-wrap: break-word">
+                                            <td>{{$val->first_name}} {{$val->last_name}} ({{$val->company_name}}</td>`
+                                            <td>{{$val->name}}</td>
+                                            <td width="20%" style="max-width: 160px; word-wrap: break-word">
                                                 {{$val->src}}</td>
                                             <td style="max-width: 280px;">
                                                 <textarea name="" id="" cols="60" rows="6" class="form-control"
@@ -130,6 +132,10 @@
                 <div class="modal-body">
                     <div class="table-responsive">
                         <table id="clientlist" class="table table-bordered" width="100%" cellspacing="0">
+                            <tr>
+                                <th>Client Name</th>
+                                <td id="client_name"></td>
+                            </tr>
                             <tr>
                                 <th>Player Name</th>
                                 <td id="player_name"></td>

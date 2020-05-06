@@ -16,7 +16,11 @@ class PlayerListsController extends Controller
      */
     public function index()
     {
-        $players = Player::all();
+        $players = Player::join('users', 'players.client_id', 'users.id')
+                        ->join('clients', 'users.client_id', 'clients.id')
+                        ->select('players.id', 'players.name', 'players.src', 'players.iframe_code', 'players.created_at', 'users.first_name', 'users.last_name', 'clients.company_name')
+                        ->get();
+
         return view('playerList')->with('players',$players);
     }
 

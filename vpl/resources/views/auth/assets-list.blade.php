@@ -69,21 +69,21 @@
                                                     <td>{{$val->first_name}} {{$val->last_name}}
                                                         ({{$val->company_name}})</td>
                                                     <td>
-                                                        <textarea name="" id="logo_url" cols="35" rows="3"
+                                                        <textarea name="" id="logo_url" cols="35" rows="3" class="form-control"
                                                             readonly>https://vcdn-dev.planetnine.com/uploads/logo/{{$val->logo_url}} </textarea>
                                                         <br>
                                                         <img src="{{URL::asset("/uploads/poster/$val->logo_url")}}"
                                                             class="img-thumbnail" width="200" height="100">
                                                     </td>
                                                     <td>
-                                                        <textarea name="" id="poster_url" cols="35" rows="3"
+                                                        <textarea name="" id="poster_url" cols="35" rows="3" class="form-control"
                                                             readonly>https://vcdn-dev.planetnine.com/uploads/poster/{{$val->poster_url}} </textarea>
                                                         <br>
                                                         <img src="{{URL::asset("/uploads/poster/$val->poster_url")}}"
                                                             class="img-thumbnail" width="200" height="100">
                                                     </td>
                                                     <td>
-                                                        <textarea name="" id="poster_url" cols="35" rows="3"
+                                                        <textarea name="" id="poster_url" cols="35" rows="3" class="form-control"
                                                             readonly>https://vcdn-dev.planetnine.com/uploads/video/{{$val->video_url}} </textarea>
                                                         <br>
                                                         <video width="320" height="240" controls>

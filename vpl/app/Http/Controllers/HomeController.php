@@ -38,7 +38,7 @@ class HomeController extends Controller
                                             ->get()
                                             ->count();
             
-            $vast_tag_list = Player::join('client_request', 'players.request_id', 'players.request_id')
+            $vast_tag_list = Player::join('client_request', 'players.client_id', 'players.client_id')
                                     ->where('players.client_id', '=', $user_id)
                                     ->where('client_request.is_accepted', '=', 1)
                                     ->get();

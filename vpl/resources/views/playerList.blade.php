@@ -140,7 +140,7 @@
                             </tr>
                             <tr>
                                 <th>iFrame</th>
-                                <td style="max-width: 280px;"><textarea id="iFrame_value" cols="80" rows="5"
+                                <td style="max-width: 280px;"><textarea id="iFrame_value" cols="80" rows="5" class="form-control"
                                         style="resize: none;" readonly></textarea></td>
                             </tr>
                             <tr>
@@ -158,7 +158,7 @@
                             <tr>
                                 <th>Ads URL</th>
                                 <td>
-                                    <textarea name="" id="ads_url_value" cols="80" rows="5" style="resize: none;"
+                                    <textarea name="" id="ads_url_value" cols="80" rows="5" style="resize: none;" class="form-control"
                                         readonly></textarea>
                                 </td>
                             </tr>

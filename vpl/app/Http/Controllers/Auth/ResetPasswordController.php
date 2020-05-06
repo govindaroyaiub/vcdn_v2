@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\ResetsPasswords;
 use Illuminate\Http\Request;
 use Auth;
 use App\User;
+use Illuminate\Support\Facades\Mail;
 
 class ResetPasswordController extends Controller
 {
@@ -55,6 +56,17 @@ class ResetPasswordController extends Controller
       {
         if((md5($req->new_password != $user_info->password) && ($req->new_password == $req->repeat_password)))
         {
+          $to_name = Auth::user()->first_name;
+          $to_email = Auth::user()->email;
+
+          $data = array('name'=> $to_name, "email" => $to_email);
+
+          Mail::send('auth.email.password-change', $data, function($message) use ($to_name, $to_email) 
+          {
+              $message->to($to_email, $to_name)->subject('Password Changed!');
+
+              $message->from('govindaisalovemachine@gmail.com','The Love Machine');
+          });
           User::where('id', $id)->update(['password' => md5($req->repeat_password)]);
           Auth::logout();
           Auth::guard("web")->logout();

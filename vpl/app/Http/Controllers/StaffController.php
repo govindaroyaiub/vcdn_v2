@@ -10,6 +10,7 @@ use App\ClientRequest;
 use App\Uploads;
 use App\Player;
 use Auth;
+use Illuminate\Support\Facades\Mail;
 
 class StaffController extends Controller
 {
@@ -274,7 +275,6 @@ class StaffController extends Controller
     function accept_vast_tag($id)
     {
         $client_id = ClientRequest::select('client_id')->where('id', $id)->first();
-
         $check_assets = Uploads::where('request_id', '=', $id)->first();
         $check_player = Player::where('request_id', '=', $id)->first();
 
@@ -290,6 +290,17 @@ class StaffController extends Controller
         {
             $client_name = User::where('id', '=', $client_id['client_id'])->where('user_type', '=', 'client')->first();
             $client_company = Company::where('id', '=', $client_name['client_id'])->first();
+
+            $to_name = $client_name['first_name'];
+            $to_email = $client_name['email'];
+
+            $data = array('name'=> $to_name, "body" => "Your VAST Tag has been generated! Please check your Dashboard.");
+            Mail::send('auth.email.vast-email', $data, function($message) use ($to_name, $to_email) 
+            {
+                $message->to($to_email, $to_name)->subject('VAST Tag Generated!');
+
+                $message->from('govindaroy.ofc94@gmail.com','Govinda Roy');
+            });
     
             ClientRequest::where('id', $id)->update(['is_accepted' => 1]);
             return redirect('/home')->with('success-vast-tag', $client_name['first_name'].' '.$client_name['last_name'].' '.'('.$client_company['company_name'].')');

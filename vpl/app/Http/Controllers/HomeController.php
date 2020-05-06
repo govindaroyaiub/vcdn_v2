@@ -43,7 +43,7 @@ class HomeController extends Controller
                                     ->where('client_request.is_accepted', '=', 1)
                                     ->get();
                                     
-            $total_vast_tags = Player::join('client_request', 'players.request_id', 'players.request_id')
+            $total_vast_tags = Player::join('client_request', 'players.request_id', 'client_request.id')
                                     ->where('players.client_id', '=', $user_id)
                                     ->where('client_request.is_accepted', '=', 1)
                                     ->get()

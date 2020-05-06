@@ -52,7 +52,7 @@
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>Client Name</th>
+                                            <th>Client & Company</th>
                                             <th>Player name</th>
                                             <th>Video SRC</th>
                                             <th>iframe Code</th>

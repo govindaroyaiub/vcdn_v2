@@ -66,7 +66,7 @@
                                         @foreach($players as $key=>$val)
                                         <tr>
                                             <td>{{$i++}}</td>
-                                            <td>{{$val->first_name}} {{$val->last_name}} ({{$val->company_name}}</td>`
+                                            <td>{{$val->first_name}} {{$val->last_name}} ({{$val->company_name}}</td>
                                             <td>{{$val->name}}</td>
                                             <td width="20%" style="max-width: 160px; word-wrap: break-word">
                                                 {{$val->src}}</td>

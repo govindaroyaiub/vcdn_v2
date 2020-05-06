@@ -104,7 +104,7 @@
                                                     <td width="25%" style="max-width: 160px; word-wrap: break-word">
                                                         {{$val->src}}</td>
                                                     <td style="max-width: 280px;">
-                                                        <textarea name="" id="" cols="60" rows="6"
+                                                        <textarea name="" id="" cols="60" rows="6" class="form-control"
                                                             readonly>{{$val->iframe_code}}</textarea>
                                                     </td>
                                                     <td width="12%">

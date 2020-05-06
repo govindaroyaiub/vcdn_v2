@@ -79,7 +79,7 @@
                         Client</span></a>
             </li>
             <li class="nav-item {{ (request()->is('create-vast-tag')) ? 'active' : '' }}">
-                <a class="nav-link" href="/create-vast-tag">
+                <a class="nav-link" href="/create-vast-tag" target="_blank">
                     <i class="fas fa-code"></i>
                     <span>Create VAST</span></a>
             </li>

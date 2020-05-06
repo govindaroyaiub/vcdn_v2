@@ -78,7 +78,7 @@
                                         <div class="form-group">
                                             <p class="text-danger">The VAST Tag will be generated for the following Client:</p>
                                             <select class="form-control select2" id="client_id"
-                                                name="client_id">
+                                                name="client_id" disabled>
                                                 <option value="">Select Client
                                                 </option>
                                                 @foreach($client_info as $row)

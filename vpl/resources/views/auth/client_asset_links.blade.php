@@ -62,7 +62,7 @@
                                                 <div class="form-group">
                                                     <div class="form-group">
                                                         <label for="logo"><b>Logo URL:</b></label>
-                                                        <textarea name="" id="logo_url" cols="55" rows="2"
+                                                        <textarea name="" id="logo_url" cols="55" rows="2" class="form-control"
                                                             readonly>https://vcdn-dev.planetnine.com/uploads/logo/{{$params['logo_url']}}</textarea>
                                                         <button class="btn btn-primary btn-user btn-block"
                                                             onclick="copyLogo()">Copy Logo URL <i
@@ -70,7 +70,7 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="poster"><b>Poster URL:</b></label>
-                                                        <textarea name="" id="poster_url" cols="55" rows="2"
+                                                        <textarea name="" id="poster_url" cols="55" rows="2" class="form-control"
                                                             readonly>https://vcdn-dev.planetnine.com/uploads/poster/{{$params['poster_url']}}</textarea>
                                                         <button class="btn btn-primary btn-user btn-block"
                                                             onclick="copyPoster()">Copy Poster URL <i
@@ -78,14 +78,14 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="video"><b>Video URL:</b></label>
-                                                        <textarea name="" id="video_url" cols="55" rows="2"
-                                                            readonly>https://vcdn-dev.planetnine.com/uploads/logo/{{$params['video_url']}}</textarea>
+                                                        <textarea name="" id="video_url" cols="55" rows="2" class="form-control"
+                                                            readonly>https://vcdn-dev.planetnine.com/uploads/video/{{$params['video_url']}}</textarea>
                                                         <button class="btn btn-primary btn-user btn-block"
                                                             onclick="copyVideo()">Copy Video URL <i
                                                                 class="far fa-copy"></i></button>
                                                     </div>
                                                     <hr>
-                                                    <a href="/create-vast-tag" target="_blank"
+                                                    <a href="/create-vast-tag/{{$id}}" target="_blank"
                                                         class="btn btn-primary btn-user btn-block">CREATE VAST</a>
                                                     <input type="button" value="BACK"
                                                         class="btn btn-primary btn-user btn-block" onclick="goBack()">

@@ -38,12 +38,12 @@ class HomeController extends Controller
                                             ->get()
                                             ->count();
             
-            $vast_tag_list = Player::join('client_request', 'players.request_id', 'players.request_id')
+            $vast_tag_list = Player::join('client_request', 'players.request_id', 'client_request.id')
                                     ->where('players.client_id', '=', $user_id)
                                     ->where('client_request.is_accepted', '=', 1)
                                     ->get();
                                     
-            $total_vast_tags = Player::join('client_request', 'players.request_id', 'players.request_id')
+            $total_vast_tags = Player::join('client_request', 'players.request_id', 'client_request.id')
                                     ->where('players.client_id', '=', $user_id)
                                     ->where('client_request.is_accepted', '=', 1)
                                     ->get()
@@ -143,6 +143,8 @@ class HomeController extends Controller
         $decide_pre = $input["decide_pre"];
         $sponsor_title = $input["sponsor_title"];
         $outstrem_logo = $input["outstrem_logo"];
+        $client_id = $input['client_id'];
+        $request_id = $input['request_id'];
 
         $player = new Player;
 
@@ -160,6 +162,8 @@ class HomeController extends Controller
         $player->iframe_code = "";
         $player->width = $width;
         $player->height = $height;
+        $player->client_id = $client_id;
+        $player->request_id = $request_id;
         $imaUrlEmptyPlayerHide = "";
 
         if(!isset($imaUrl)){

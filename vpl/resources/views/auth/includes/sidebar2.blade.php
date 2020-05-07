@@ -35,7 +35,6 @@
             <span>Assets</span></a>
     </li>
 
-
     <!-- <li class="nav-item {{ (request()->is('publisherlist')) ? 'active' : '' }}">
     <a class="nav-link" href="/publisherlist">
     <i class="fas fa-newspaper"></i>
@@ -66,21 +65,23 @@
             <span>Vast Tag Admin</span></a>
     </li>
 
-    <li class="nav-item {{ (request()->is('create-vast-tag')) ? 'active' : '' }}">
-        <a class="nav-link" href="/create-vast-tag">
-            <i class="fas fa-code"></i>
-            <span>Create VAST</span></a>
-    </li>
-
     <li class="nav-item">
-        <a href="#shortcutMenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link"><i class="fas fa-list"></i> <span>ShortCuts</span> <i class="fas fa-caret-down"></i></a>
-        
+        <a href="#shortcutMenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link"><i
+                class="fas fa-list"></i> <span>ShortCuts</span> <i class="fas fa-caret-down"></i></a>
+
         <ul class="collapse list-unstyled" id="shortcutMenu">
             <li>
-                <a href="/create/user" target="_blank" class="nav-link"><i class="fas fa-users"></i> <span>Create User</span></a>
+                <a href="/create/user" target="_blank" class="nav-link"><i class="fas fa-users"></i> <span>Create
+                        User</span></a>
             </li>
             <li>
-                <a href="/create/company" target="_blank" class="nav-link"><i class="fas fa-building"></i> <span>Create Client</span></a>
+                <a href="/create/company" target="_blank" class="nav-link"><i class="fas fa-building"></i> <span>Create
+                        Client</span></a>
+            </li>
+            <li class="nav-item {{ (request()->is('create-vast-tag')) ? 'active' : '' }}">
+                <a class="nav-link" href="/create-vast-tag" target="_blank">
+                    <i class="fas fa-code"></i>
+                    <span>Create VAST</span></a>
             </li>
         </ul>
     </li>

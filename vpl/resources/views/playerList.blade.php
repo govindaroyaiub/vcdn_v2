@@ -43,7 +43,7 @@
                     <h1 class="h3 mb-4 text-gray-800">VAST-Tag Player List</h1>
                     <div class="card shadow mb-4">
                         <div class="card-header py-3 text-right">
-                            <!--<a href="/create/company"> Add New <i class="fas fa-plus"></i></a>-->
+                            <a href="/create-vast-tag" target="_blank"> Add New <i class="fas fa-plus"></i></a>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -52,6 +52,7 @@
                                     <thead>
                                         <tr>
                                             <th>#</th>
+                                            <th>Client & Company</th>
                                             <th>Player name</th>
                                             <th>Video SRC</th>
                                             <th>iframe Code</th>
@@ -65,11 +66,12 @@
                                         @foreach($players as $key=>$val)
                                         <tr>
                                             <td>{{$i++}}</td>
-                                            <td width="13%">{{$val->name}}</td>
-                                            <td width="25%" style="max-width: 160px; word-wrap: break-word">
+                                            <td>{{$val->first_name}} {{$val->last_name}} ({{$val->company_name}}</td>
+                                            <td>{{$val->name}}</td>
+                                            <td width="20%" style="max-width: 160px; word-wrap: break-word">
                                                 {{$val->src}}</td>
                                             <td style="max-width: 280px;">
-                                                <textarea name="" id="" cols="60" rows="6"
+                                                <textarea name="" id="" cols="60" rows="6" class="form-control"
                                                     readonly>{{$val->iframe_code}}</textarea>
                                             </td>
                                             <td width="12%">
@@ -131,6 +133,10 @@
                     <div class="table-responsive">
                         <table id="clientlist" class="table table-bordered" width="100%" cellspacing="0">
                             <tr>
+                                <th>Client Name</th>
+                                <td id="client_name"></td>
+                            </tr>
+                            <tr>
                                 <th>Player Name</th>
                                 <td id="player_name"></td>
                             </tr>
@@ -140,7 +146,7 @@
                             </tr>
                             <tr>
                                 <th>iFrame</th>
-                                <td style="max-width: 280px;"><textarea id="iFrame_value" cols="80" rows="5"
+                                <td style="max-width: 280px;"><textarea id="iFrame_value" cols="80" rows="5" class="form-control"
                                         style="resize: none;" readonly></textarea></td>
                             </tr>
                             <tr>
@@ -158,7 +164,7 @@
                             <tr>
                                 <th>Ads URL</th>
                                 <td>
-                                    <textarea name="" id="ads_url_value" cols="80" rows="5" style="resize: none;"
+                                    <textarea name="" id="ads_url_value" cols="80" rows="5" style="resize: none;" class="form-control"
                                         readonly></textarea>
                                 </td>
                             </tr>

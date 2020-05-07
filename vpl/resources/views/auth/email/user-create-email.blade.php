@@ -350,9 +350,9 @@
                     <tr>
                       <td>
                         <p>Hi <b>{{$name}}</b>,</p>
-                        <p>Your account has successfully been created! You can now login with the credentials below:</p> <br>
-                        <p>Username: <b>email address</b></p> <br>
-                        <p>Password: <b>12345</b></p> <br>
+                        <p>Your account has successfully been created! You can now login with the credentials below:</p>
+                        <p>Username: <b>{{$email}}</b></p>
+                        <p>Password: <b>12345</b></p>
                         <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="btn btn-primary">
                           <tbody>
                             <tr>

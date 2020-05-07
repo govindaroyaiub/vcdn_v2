@@ -21,11 +21,10 @@ Auth::routes();
 Route::post('/email_available/check', 'Auth\LoginController@email_available')->name('email_available.check');
 Route::post('/current_password/check', 'Auth\ResetPasswordController@current_password_check')->name('current_password.check');
 
-Route::post('/change-password', 'Auth\ResetPasswordController@change_password');
-
 Route::group(['middleware' => ['auth']], function()
 {
     Route::get('/home', 'HomeController@index')->name('home');
+    Route::post('/change-password', 'Auth\ResetPasswordController@change_password');
 
     //client_ui urls
     Route::get('/request-vast-tag', 'ClientController@request_vast_tag');
@@ -62,7 +61,8 @@ Route::group(['middleware' => ['auth']], function()
     Route::get('/vast-tag-admin', 'PlayerListsController@index')->name('admin');
     Route::post('/vast-tag/accept/{id}', 'StaffController@accept_vast_tag');
     Route::post('/vast-tag/delete/{id}', 'StaffController@delete_vast_tag');
-    Route::get('/create-vast-tag', 'StaffController@create_vast_tag');
+    Route::get('/create-vast-tag/{id}', 'StaffController@create_vast_tag');
+    Route::get('/create-vast-tag', 'StaffController@create_vast_tag2');
 
     //ajax post request for getting all request info and playerinfo for playersLists
     Route::post('/getrequestinfo', 'StaffController@getrequestInfo')->name('getrequestinfo');

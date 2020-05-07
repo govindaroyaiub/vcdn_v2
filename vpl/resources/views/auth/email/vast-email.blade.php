@@ -350,7 +350,7 @@
                     <tr>
                       <td>
                         <p>Hi <b>{{$name}}</b>,</p>
-                        <p>Your VAST Tag has been successfully generated!. Please check in the Dashboard.</p>
+                        <p>{{$body}}.</p>
                         <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="btn btn-primary">
                           <tbody>
                             <tr>

@@ -133,10 +133,6 @@
                     <div class="table-responsive">
                         <table id="clientlist" class="table table-bordered" width="100%" cellspacing="0">
                             <tr>
-                                <th>Client Name</th>
-                                <td id="client_name"></td>
-                            </tr>
-                            <tr>
                                 <th>Player Name</th>
                                 <td id="player_name"></td>
                             </tr>

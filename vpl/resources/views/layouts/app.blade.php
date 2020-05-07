@@ -93,6 +93,6 @@
     <script src="https://cdn.jsdelivr.net/npm/videojs-logobrand@1.0.3/src/videojs.logobrand.js"></script>
     <script src="{{ asset('js/app.js') }}"></script>
     @yield('scripts')
-    
+
 </body>
 </html>

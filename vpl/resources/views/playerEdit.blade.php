@@ -96,7 +96,7 @@
             </div>
             </div>
           </div>
-          
+
           <div class="form-group mb-3">
             <label for="posterurl">Poster URL</label>
               <input type="text" class="form-control" id="posterurl" value="{{$player->poster}}"  placeholder="Poster url">
@@ -115,7 +115,6 @@
           <div class="form-group mt-3">
             <label for="code">Embed Code</label>
             <textarea class="form-control" id="code" rows="12"></textarea>
-          </textarea>
         </div>
     </div>
 </div>
@@ -125,7 +124,7 @@
 
 @section('scripts')
 <script type="text/javascript">
-  
+
 
 
 </script>

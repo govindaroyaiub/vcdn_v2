@@ -30,7 +30,7 @@ Route::group(['middleware' => ['auth']], function()
     //client_ui urls
     Route::get('/request-vast-tag', 'ClientController@request_vast_tag');
     Route::post('/request-vast-tag', 'ClientController@post_vast_tag');
-    
+
     //staff_ui urls
     //company(clients in diva world wide terms) urls for list of clients and creating clients also delete and editing clients
     Route::get('/companylist', 'StaffController@clientlist');
@@ -67,7 +67,7 @@ Route::group(['middleware' => ['auth']], function()
     //ajax post request for getting all request info and playerinfo for playersLists
     Route::post('/getrequestinfo', 'StaffController@getrequestInfo')->name('getrequestinfo');
     Route::post('/getplayerInfo', 'PlayerListsController@getInfo')->name('getplayerInfo');
-    
+
     //assets urls. list of assets, delete and uplading assets
     Route::get('/asset-upload/{id}', 'StaffController@asset_upload');
     Route::post('/asset-upload/{id}', 'StaffController@asset_upload_post');

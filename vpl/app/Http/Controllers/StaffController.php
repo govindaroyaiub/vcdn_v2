@@ -214,17 +214,17 @@ class StaffController extends Controller
             $company_name = Company::select('company_name')->where('id', '=', $request->company)->first();
             User::insert($params);
 
-            $to_name = $params['first_name'];
-            $to_email = $params['email'];
+            // $to_name = $params['first_name'];
+            // $to_email = $params['email'];
 
-            $data = array('name'=> $to_name, "email" => $to_email);
+            // $data = array('name'=> $to_name, "email" => $to_email);
 
-            Mail::send('auth.email.user-create-email', $data, function($message) use ($to_name, $to_email) 
-            {
-                $message->to($to_email, $to_name)->subject('VCDN Account Created!');
+            // Mail::send('auth.email.user-create-email', $data, function($message) use ($to_name, $to_email) 
+            // {
+            //     $message->to($to_email, $to_name)->subject('VCDN Account Created!');
 
-                $message->from('govindaisalovemachine@gmail.com','The Love Machine');
-            });
+            //     $message->from('govindaisalovemachine@gmail.com','The Love Machine');
+            // });
             return redirect('/userlist')->with('success-create-user', $request->first_name. ' '.$request->last_name.'('.$company_name['company_name'].')');
         }
     }

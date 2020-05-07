@@ -53,19 +53,19 @@
                   <form class="user" action="/addproject" method="POST">
                   {{ csrf_field() }}
                     <div class="form-group">
-                      <input type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Type">
+                      <input type="email" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Type">
                     </div>
                     <div class="form-group">
-                      <input type="date" class="form-control form-control-user" id="exampleInputPassword" placeholder="Star Date">
+                      <input type="date" class="form-control" id="exampleInputPassword" placeholder="Star Date">
                     </div>
                     <div class="form-group">
-                      <input type="date" class="form-control form-control-user" id="exampleInputPassword" placeholder="End Date">
+                      <input type="date" class="form-control" id="exampleInputPassword" placeholder="End Date">
                     </div>
                     <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="exampleInputPassword" placeholder="Assets">
+                      <input type="text" class="form-control" id="exampleInputPassword" placeholder="Assets">
                     </div>
                     <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="exampleInputPassword" placeholder="Data Source">
+                      <input type="text" class="form-control" id="exampleInputPassword" placeholder="Data Source">
                     </div>
                     <input type="submit" name="submit" value="Create" class="btn btn-primary btn-user btn-block">
                     <input type="button" value="BACK" class="btn btn-primary btn-user btn-block" onclick="goBack()">

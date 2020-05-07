@@ -48,28 +48,28 @@
                   <form class="user" action="/company/edit/{{$data->id}}" method="POST">
                   {{ csrf_field() }}
                     <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="company_name" value="{{$data->company_name}}" name="company_name" placeholder="Enter Company Name">
+                      <input type="text" class="form-control" id="company_name" value="{{$data->company_name}}" name="company_name" placeholder="Enter Company Name">
                     </div>
                     <div class="form-group">
-                      <textarea class="form-control form-control-user" id="address" name="address" value="{{$data->address}}" placeholder="Enter Address"></textarea>
+                      <textarea class="form-control" id="address" name="address" value="{{$data->address}}" placeholder="Enter Address"></textarea>
                     </div>
                     <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="website" name="website" value="{{$data->website}}" placeholder="Enter Website">
+                      <input type="text" class="form-control" id="website" name="website" value="{{$data->website}}" placeholder="Enter Website">
                     </div>
                     <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="city" name="city" value="{{$data->city}}" placeholder="Enter City">
+                      <input type="text" class="form-control" id="city" name="city" value="{{$data->city}}" placeholder="Enter City">
                     </div>
                     <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="state" name="state" value="{{$data->state}}" placeholder="Enter State">
+                      <input type="text" class="form-control" id="state" name="state" value="{{$data->state}}" placeholder="Enter State">
                     </div>
                     <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="zip" name="zip" value="{{$data->zip}}" placeholder="Enter Zip">
+                      <input type="text" class="form-control" id="zip" name="zip" value="{{$data->zip}}" placeholder="Enter Zip">
                     </div>
                     <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="country" name="country" value="{{$data->country}}" placeholder="Enter Country">
+                      <input type="text" class="form-control" id="country" name="country" value="{{$data->country}}" placeholder="Enter Country">
                     </div>
                     <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="phone" name="phone" value="{{$data->phone}}" placeholder="Enter Phone">
+                      <input type="text" class="form-control" id="phone" name="phone" value="{{$data->phone}}" placeholder="Enter Phone">
                     </div>
                     <input type="submit" value="EDIT" class="btn btn-primary btn-user btn-block">
                     <input type="button" value="BACK" class="btn btn-primary btn-user btn-block" onclick="goBack()">

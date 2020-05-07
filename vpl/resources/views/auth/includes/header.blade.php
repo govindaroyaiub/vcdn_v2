@@ -27,7 +27,6 @@
 
       .select2-container--default .select2-selection--single {
           font-size: .8rem;
-          border-radius: 10rem;
           background-color: #fff;
           background-clip: padding-box;
           border: 1px solid #d1d3e2;

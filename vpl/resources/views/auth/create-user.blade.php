@@ -51,7 +51,7 @@
                                                     <a href="/create/company">Click here if the Client is not listed</a>
                                                     </div>
                                                     <div class="form-group">
-                                                        <select class="form-control select2 form-control-user" id="company"
+                                                        <select class="form-control select2" id="company"
                                                             name="company">
                                                             <option value="">Select Associated Company
                                                             </option>
@@ -85,19 +85,19 @@
                                                         </select>
                                                     </div>
                                                     <div class="form-group">
-                                                        <input type="email" class="form-control form-control-user" id="email" name="email"
+                                                        <input type="email" class="form-control" id="email" name="email"
                                                             aria-describedby="emailHelp" placeholder="Enter email">
                                                     </div>
                                                     <div class="form-group">
-                                                        <input type="text" class="form-control form-control-user"
+                                                        <input type="text" class="form-control"
                                                             id="job_title" name="job_title" placeholder="Enter Job Title">
                                                     </div>
                                                     <div class="form-group">
-                                                        <input type="text" class="form-control form-control-user"
+                                                        <input type="text" class="form-control"
                                                             id="phone" name="phone" placeholder="Enter Phone">
                                                     </div>
                                                     <div class="form-group">
-                                                        <textarea class="form-control form-control-user" id="address"
+                                                        <textarea class="form-control" id="address"
                                                             name="address" placeholder="Enter Address"></textarea>
                                                     </div>
                                                     <!-- <div class="form-group">

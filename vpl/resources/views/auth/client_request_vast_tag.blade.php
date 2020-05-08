@@ -153,12 +153,12 @@
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <input type="text" class="form-control form-control-user"
+                                                        <input type="text" class="form-control"
                                                             name="url" id="url" aria-describedby="UrlHelp"
                                                             placeholder="Enter URL">
                                                     </div>
                                                     <div class="form-group">
-                                                        <textarea class="form-control form-control-user" id="comment"
+                                                        <textarea class="form-control" id="comment"
                                                             name="comment" rows="4" cols="50"
                                                             placeholder="Enter Comment"></textarea>
                                                     </div>

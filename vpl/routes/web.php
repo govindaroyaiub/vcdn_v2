@@ -79,6 +79,9 @@ Route::group(['middleware' => ['auth']], function()
     Route::get('/assets-list', 'StaffController@assets_list');
     Route::post('/asset/delete/{id}', 'StaffController@asset_delete');
 
+    Route::get('/upload-assets', 'AssetController@index');
+    Route::post('/upload-assets', 'AssetController@asset_upload');
+
     //vast tag player urls delete edit and saving vast tags
     Route::get('/player/edit/{id}', 'PlayerListsController@edit')->name('player.edit');
     Route::post('playerUpdate', 'PlayerListsController@SavePlayer');

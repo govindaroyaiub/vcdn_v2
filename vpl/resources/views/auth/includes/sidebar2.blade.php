@@ -83,6 +83,12 @@
                     <i class="fas fa-code"></i>
                     <span>Create VAST</span></a>
             </li>
+
+            <li class="nav-item {{ (request()->is('create-vast-tag')) ? 'active' : '' }}">
+                <a class="nav-link" href="/upload-assets" target="_blank">
+                    <i class="far fa-images"></i>
+                    <span>Upload Assets</span></a>
+            </li>
         </ul>
     </li>
 

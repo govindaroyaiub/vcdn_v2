@@ -73,7 +73,7 @@
                                                                 name="logo" onchange="readLogo(this);">
                                                             <img id="logo_pre" src="http://placehold.it/180"
                                                                 alt="your image" class="img-thumbnail" width="200"
-                                                                height="100" style="display: none" />
+                                                                height="200" style="display: none" />
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="poster"><b>Upload Poster Here</b></label>
@@ -81,7 +81,7 @@
                                                                 name="poster" onchange="readPoster(this);">
 
                                                             <img id="poster_pre" src="http://placehold.it/180"
-                                                                class="img-thumbnail" width="200" height="100"
+                                                                class="img-thumbnail" width="500" height="400"
                                                                 alt="your image" style="display: none" />
                                                         </div>
                                                         <div class="form-group">

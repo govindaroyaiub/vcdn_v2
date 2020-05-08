@@ -11,6 +11,11 @@
 |
 */
 
+
+Route::get('/imgeditor', function () {
+    return view('imageEditor');
+});
+
 Route::get('/', function () {
     return view('auth/login');
 });

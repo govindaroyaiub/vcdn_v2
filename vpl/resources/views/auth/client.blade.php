@@ -188,7 +188,7 @@
                             </tr>
                             <tr>
                                 <th>iFrame</th>
-                                <td style="max-width: 280px;"><textarea id="iFrame_value" cols="80" rows="5"
+                                <td style="max-width: 280px;"><textarea id="iFrame_value" cols="80" rows="5" class="form-control"
                                         style="resize: none;" readonly></textarea></td>
                             </tr>
                             <tr>
